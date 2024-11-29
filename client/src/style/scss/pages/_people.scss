@@ -1,0 +1,15 @@
+@use '../abstracts' as *;
+
+.peoplePage {
+  .content {
+    @include responde-to(medium){
+      display: flex;
+      .feed {
+        order: 1;
+      }
+      .searchPeople{
+        order: 2;
+      }
+    }
+  }
+}

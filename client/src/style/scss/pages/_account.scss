@@ -1,0 +1,149 @@
+@use '../abstracts' as *;
+
+.accountPage {
+  width: 90%;
+  text-align: center;
+
+  .accountInfo {
+    margin: 0 auto;
+
+    .head {
+      display: grid;
+
+      .userInfo {
+        display: flex;
+        flex-direction: column;
+
+        h2 {
+          font-weight: bold;
+          border-bottom: 2px solid $green;
+          margin: 0.2em auto;
+        }
+
+        small {
+          font-style: italic;
+        }
+
+        .profileImg {
+          align-self: center;
+          image-rendering: pixelated;
+          box-shadow: 0 0 5px 2px black;
+          border-radius: 50%;
+          width: 5em;
+          margin: 0.3em auto;
+        }
+      }
+
+      .bio {
+        text-align: left;
+        margin: 1em 5%;
+        grid-column: 1 / -1;
+        color: black;
+      }
+
+      .settings {
+        display: none;
+        img {
+          width: 1.2em;
+        }
+      }
+
+      .userProgress {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 1em;
+        margin: 0.5em;
+
+        div {
+          background-color: white;
+          margin: 0 auto;
+          border-radius: 5px;
+          box-shadow: 0 4px 4px 0 rgba($color: #000000, $alpha: 0.4);
+          display: flex;
+          align-items: center;
+          width: 100%;
+        }
+
+        h4,
+        h3 {
+          margin: 0.3em 0.5em;
+          display: inline;
+        }
+
+        h3 {
+          margin-left: auto;
+          color: $green;
+        }
+      }
+
+      @include from-to(small, medium) {
+        margin: 0.5em auto;
+        background-color: rgba($color: $green, $alpha: 0.6);
+        padding: 1em;
+        border-radius: 5px;
+        grid-template-columns: repeat(2, 1fr);
+        box-shadow: 0 4px 4px 0 rgba($color: #000000, $alpha: 0.4);
+      }
+
+      @include responde-to(medium) {
+        margin: 1em auto;
+        grid-template-columns: 30% 70%;
+        grid-template-rows: repeat(4, fit-content);
+        justify-content: center;
+        gap: 0 2em;
+
+        .userInfo {
+          grid-column: 1 / 1;
+          grid-row: 1 / 3;
+
+          .profileImg {
+            width: 10em;
+            margin: 1em;
+          }
+        }
+
+        .userProgress {
+          grid-column: 2 / 4;
+          grid-row: 1 / 1;
+          align-self: center;
+          justify-self: center;
+          margin-left: 0;
+          flex-direction: row;
+          gap: 3em;
+          font-size: 1.3em;
+
+          div {
+            flex-direction: column;
+            box-shadow: none;
+            background-color: none;
+            width: 5em;
+          }
+
+          h3 {
+            order: 0;
+            margin: 0 auto;
+          }
+
+          h4 {
+            order: 1;
+          }
+        }
+
+        .bio {
+          grid-column: 2 / -1;
+          grid-row: 2 / 3;
+          margin: auto;
+        }
+      }
+    }
+  }
+
+  .settings {
+    text-align: right;
+    margin: 1em auto;
+    img {
+      width: 1.5em;
+    }
+  }
+}

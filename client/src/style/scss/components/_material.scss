@@ -1,0 +1,36 @@
+@use '../abstracts' as *;
+
+.material {
+  margin: 4em auto;
+
+  @include responde-to(medium) {
+    width: 75%;
+  }
+  h3 {
+    color: var(--sdg-color);
+    text-align: center;
+  }
+
+  p,
+  em {
+    display: block;
+    line-height: 1.4em;
+    text-align: justify;
+    white-space: pre-wrap;
+  }
+
+  &.image {
+    width: 100%;
+    img {
+      width: 100%;
+    }
+  }
+
+  iframe {
+    border: none;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border: none;
+    background: rgba(var(--sdg-color-rgb), 0.8);
+  }
+}

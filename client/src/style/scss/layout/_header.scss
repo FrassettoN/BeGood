@@ -1,0 +1,145 @@
+@use '../abstracts' as *;
+
+.header {
+  width: 100%;
+
+  // Font
+  font-size: 1rem;
+  font-weight: 700;
+
+  // Flex
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  z-index: 100;
+
+  @include from-to(small, medium) {
+    margin-top: 0.5rem;
+  }
+
+  @include responde-to(medium) {
+    margin-top: 0.8em;
+    justify-content: start;
+    letter-spacing: 1px;
+  }
+
+  // Fix header (when scrolling)
+  &.fixed {
+    position: fixed;
+    background: $background-color;
+    top: 0;
+    height: 5em;
+    margin: 0;
+  }
+
+  nav {
+    display: inline;
+
+    @include from-to(small, medium) {
+      a {
+        margin: 1.5em auto;
+        text-align: right;
+        display: block;
+        width: 90%;
+      }
+    }
+
+    @include responde-to(medium) {
+      a {
+        margin: 0 1.7rem 0 0;
+      }
+    }
+  }
+
+  &__menu {
+    order: 2;
+
+    .active {
+      border-bottom: 2px solid $green;
+    }
+
+    @include from-to(small, medium) {
+      height: 100%;
+      width: 100%;
+      position: fixed;
+      z-index: 1;
+      top: 0;
+      right: -100%;
+      background: #fff;
+      transition: right 350ms ease-in-out;
+      font-size: 1.5rem;
+      overflow-x: none;
+      color: $black;
+
+      &.open {
+        box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.5);
+        right: 0;
+      }
+    }
+
+    @include responde-to(medium) {
+      margin: auto auto auto 2em;
+
+      #signUpLink {
+        display: none;
+      }
+    }
+  }
+
+  &__openMenu {
+    @include from-to(small, medium) {
+      padding: 0 0.5em;
+      cursor: pointer;
+      order: 3;
+      font-size: 1.1em;
+    }
+    @include responde-to(medium) {
+      display: none;
+    }
+  }
+
+  &__closeMenu {
+    @include from-to(small, medium) {
+      width: 95%;
+      display: block;
+      text-align: right;
+      margin: 1.5em 0.5em auto auto;
+      cursor: pointer;
+    }
+    @include responde-to(medium) {
+      display: none;
+    }
+  }
+
+  &__account,
+  &__authentication {
+    order: 2;
+    margin: 0 1em;
+
+    @include responde-to(medium) {
+      margin: 0 2.5% 0 0;
+    }
+  }
+
+  &__logIn {
+    display: inline-block;
+
+    @include responde-to(medium) {
+      margin: 0 1.5em;
+    }
+  }
+
+  #signUpBtn {
+    @include from-to(small, medium) {
+      display: none;
+    }
+
+    @include responde-to(medium) {
+      display: inline-block;
+      &.currentPage {
+        border: 2px solid $green;
+      }
+    }
+  }
+}

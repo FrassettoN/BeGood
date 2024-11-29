@@ -1,0 +1,42 @@
+@use '../abstracts/' as *;
+
+.footerMenu{
+  @include from-to(small, medium){
+    overflow: hidden;
+    position: fixed;
+    z-index: 100;
+    bottom: 0;
+    width: 100%;
+    padding: 1em;
+    background-color: $green;
+    
+    nav {
+      display: flex;
+      justify-content: space-around;
+
+      a{
+        padding: 0.5em 0.6em 0.4em 0.6em;
+        border-radius: 50%;
+        color: white;
+        .icon{
+          font-size: 2em;
+          align-self: center;
+        }
+        &.active {
+          background:white;
+          color: $green;
+        }
+      }
+
+    }
+  }
+  
+  @include responde-to(medium){
+    display: none;
+  }
+
+  &.hidden {
+    display: none;
+  }
+
+}

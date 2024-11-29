@@ -1,0 +1,55 @@
+@use '../abstracts' as *;
+
+.authContainer {
+  margin: 4em auto;
+  display: flex;
+  box-shadow: 0 0 1px 1px rgba($color: #000000, $alpha: 0.1);
+  border-radius: 10px;
+  width: 80%;
+  flex-direction: row;
+
+  a {
+    color: $green;
+  }
+
+  p.switchAuth {
+    width: 90%;
+    margin: 2em auto;
+    text-align: center;
+    line-height: 1.4em;
+    a {
+      font-weight: bold;
+      font-size: 1.2em;
+    }
+
+    &--smallScreen {
+      display: block;
+      width: 90%;
+      @include responde-to(medium) {
+        display: none;
+      }
+    }
+  }
+
+  aside {
+    display: none;
+    background-color: rgba($color: #d2b48c, $alpha: 0.8);
+    @include responde-to(medium) {
+      display: block;
+      width: 35%;
+    }
+  }
+  form {
+    width: 100%;
+    margin: 0 auto;
+    @include responde-to(medium) {
+      width: 50%;
+    }
+
+    .btn {
+      display: block;
+      width: 90%;
+      margin: 0 auto;
+    }
+  }
+}

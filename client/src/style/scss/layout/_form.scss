@@ -1,0 +1,131 @@
+@use '../abstracts' as *;
+
+form {
+  padding: 1em 0.3em;
+
+  .error {
+    color: red;
+    font-size: small;
+    margin: 0.3em 0;
+  }
+
+  .message {
+    color: $green;
+    font-size: small;
+    margin: 0.3em 0;
+  }
+
+  .title {
+    text-align: center;
+    h2 {
+      color: $green;
+      margin: 0;
+    }
+  }
+  section {
+    margin: 1em auto;
+    width: 90%;
+  }
+  label {
+    display: block;
+    margin: 0.5em 0;
+  }
+
+  input[type='text'],
+  input[type='password'],
+  textarea {
+    display: block;
+    width: 100%;
+    border-radius: 5px;
+    border: 2px solid transparent;
+    font-size: clamp(1rem, 1.3vw, 1.7rem);
+    line-height: clamp(1rem, 2vw, 2rem);
+    background: #eee;
+    padding: 0.3em 0.5em;
+    border-bottom: 2px solid white;
+
+    &.incorrect {
+      border-bottom: 2px solid red;
+    }
+  }
+
+  textarea {
+    resize: vertical;
+  }
+
+  .forgotPassword {
+    text-align: right;
+    display: block;
+    width: 90%;
+    margin: 0.2em auto;
+  }
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  width: 50px;
+  height: 25px;
+  cursor: pointer;
+
+  input[type='checkbox'] {
+    visibility: hidden;
+    min-width: 3em;
+    position: absolute;
+    border-radius: 50%;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    &:checked + .slider {
+      background-color: $green;
+      &::before {
+        background-color: white;
+        transform: translateX(25px);
+      }
+    }
+  }
+}
+
+.switchSection {
+  display: flex;
+  align-items: center;
+  .switchTextLabel {
+    font-size: clamp(0.9rem, 3vw, 1rem);
+    padding: 0.1em 1rem;
+    display: inline-block;
+  }
+}
+
+.slider {
+  box-sizing: content-box;
+  position: absolute;
+  background-color: #eee;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  transition: 0.5s;
+  box-shadow: 0 0 1px rgba($color: #000000, $alpha: 0.3);
+  &::before {
+    position: absolute;
+    content: '';
+    top: 5px;
+    left: 5px;
+    transition: 0.5s;
+    background: #fff;
+    box-shadow: 0 0 10px rgba($color: #000000, $alpha: 0.2);
+  }
+
+  &.round {
+    border-radius: 35px;
+    &:before {
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+    }
+  }
+}

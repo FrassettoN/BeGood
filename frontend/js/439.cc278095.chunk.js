@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkclient=self.webpackChunkclient||[]).push([[439],{8439:(e,s,a)=>{e.exports=a.p+"static/media/pianta_grassa.83b49fc3f229770f72d4.jpg"}}]);

@@ -1,0 +1,402 @@
+[
+  {
+    "id": 3,
+    "title": "ColourFood",
+    "caption": "A diet of vegetables and fruit of different colours will bring you nutritional benefits, maintaining the genetic diversity in food production.",
+    "duration": "day",
+    "level": "easy",
+    "SDGs": [2, 3]
+  },
+  {
+    "id": 5,
+    "title": "Sounds like a plan",
+    "caption": "Before buying groceries try to plan your meals for the entire week. You will be able to buy the right amount of food avoiding any waste.",
+    "duration": "week",
+    "level": "easy",
+    "SDGs": [2]
+  },
+  {
+    "id": 6,
+    "title": "The Walking Health",
+    "caption": "Include walking in your daily routine! Once a day try to go out and walk for 30 minutes: it helps you stay physically and mentally healthy.",
+    "duration": "day",
+    "level": "medium",
+    "SDGs": [3]
+  },
+  {
+    "id": 7,
+    "title": "Listen to yourself",
+    "caption": "Everyday spend 30 minutes for yourself: read a good book, try some yoga, have a walk with some good music. You’ll feel much better!",
+    "duration": "day",
+    "level": "easy",
+    "SDGs": [3]
+  },
+  {
+    "id": 8,
+    "title": "OOOOM",
+    "caption": "Take at least 10 minutes to meditate. Meditation will help you to understand yourself and your emotions while exploring the secrets of the mind.",
+    "duration": "day",
+    "level": "easy",
+    "SDGs": [3]
+  },
+  {
+    "id": 9,
+    "title": "The Health Runner",
+    "caption": "Running can significantly improve physical and mental health: try running for 30 minutes at least once a week.",
+    "duration": "week",
+    "level": "easy",
+    "SDGs": [3]
+  },
+  {
+    "id": 10,
+    "title": "The Health Runner 2",
+    "caption": "Running can significantly improve physical and mental health, try running for 30 minutes every day.",
+    "duration": "day",
+    "level": "medium",
+    "SDGs": [3]
+  },
+  {
+    "id": 12,
+    "title": "Help!/I'm down",
+    "caption": "We all sometimes get overwhelmed by our feelings when things go wrong. If you feel you can't cope with it, ask for help from a friend or an expert.",
+    "duration": "month",
+    "level": "easy",
+    "SDGs": [3]
+  },
+  {
+    "id": 13,
+    "title": "Reduce Lilac Wine",
+    "caption": "Drink less than 30cl of pure alcohol in one day and have at least two alcohol-free days a week. Avoid it during tough times: it never solves problems.",
+    "duration": "week",
+    "level": "easy",
+    "SDGs": [3]
+  },
+  {
+    "id": 14,
+    "title": "I'll be there for You",
+    "caption": "Spend an afternoon with friends. Friendship is related to better mental and physical health: it reduces stress levels and inspires positive attitudes.",
+    "duration": "week",
+    "level": "easy",
+    "SDGs": [3]
+  },
+  {
+    "id": 15,
+    "title": "Follow your heart",
+    "caption": "Do something you are good at, like playing an instrument. Enjoying yourself helps to beat stress, and achieving new goals increases self-esteem.",
+    "duration": "day",
+    "level": "easy",
+    "SDGs": [3]
+  },
+  {
+    "id": 16,
+    "title": "Read 2 books",
+    "caption": "Read, just for the pleasure of learning and knowing. Good education starts from you: get a book, learn from it, share your knowledge with passion.",
+    "duration": "month",
+    "level": "medium",
+    "SDGs": [4]
+  },
+  {
+    "id": 18,
+    "title": "Sustainable shower",
+    "caption": "We waste a lot of water singing in the shower! Set a timer and be sure to spend less than 5 minutes under the water.",
+    "duration": "day",
+    "level": "easy",
+    "SDGs": [6]
+  },
+  {
+    "id": 17,
+    "title": "Have a Gramps time!",
+    "caption": "Spend some time with your grandparents, they can give you amazing tips on how to live life and can give you help on how to approach problems!",
+    "duration": "week",
+    "level": "easy",
+    "SDGs": [4]
+  },
+  {
+    "id": 25,
+    "title": "Search for quality",
+    "caption": "Don’t buy the first thing that appears under your eyes! Go to buy groceries, but search for the quality, remember cheaper equals to more noxious!",
+    "duration": "week",
+    "level": "medium",
+    "SDGs": [8]
+  },
+  {
+    "id": 26,
+    "title": "Clean the economy",
+    "caption": "Support a fairer and more inclusive economy by discouraging works that are not taxed or controlled by any form of government and by paying taxes.",
+    "duration": "week",
+    "level": "medium",
+    "SDGs": [8]
+  },
+  {
+    "id": 27,
+    "title": "Find & Fund",
+    "caption": "Find a worthy project on the internet and fund it. Start-ups are one of the most remarkable players in R&D and economic growth.",
+    "duration": "month",
+    "level": "hard",
+    "SDGs": [8]
+  },
+  {
+    "id": 38,
+    "title": "MagazInternet",
+    "caption": "Read your favourite magazines on the internet! Same information and images: the only difference is the environmental impact.",
+    "duration": "day",
+    "level": "easy",
+    "SDGs": [4, 13, 15]
+  },
+  {
+    "id": 33,
+    "title": "Recycling collection",
+    "caption": "Ask your school or workplace to start sorting and putting all the different bins for each type of rubbish!",
+    "duration": "once",
+    "level": "medium",
+    "SDGs": [11]
+  },
+  {
+    "id": 20,
+    "title": "Unplug it!",
+    "caption": "When you are not using your electrical appliances, do not put them in stand-by mode, but switch them off: this way you won’t waste energy!",
+    "duration": "day",
+    "level": "easy",
+    "SDGs": [7, 13]
+  },
+  {
+    "id": 2,
+    "title": "Flora et Labora",
+    "caption": "Become a sustainable food producer by growing your food. You will be able to control the growing environment and consume fresher and healthier meals.",
+    "duration": "week",
+    "level": "hard",
+    "SDGs": [2, 3]
+  },
+  {
+    "id": 35,
+    "title": "Moka? What else?",
+    "caption": "Start making coffee with a moka pot instead of using a coffee maker. This way you won’t have to buy single-use coffee pods anymore.",
+    "duration": "month",
+    "level": "easy",
+    "SDGs": [12]
+  },
+  {
+    "id": 34,
+    "title": "Eat meat twice a week",
+    "caption": "The meat production system is broken, but you can help to fix it: just try to reduce your meat consumption.",
+    "duration": "week",
+    "level": "medium",
+    "SDGs": [12, 13]
+  },
+  {
+    "id": 4,
+    "title": "Just eat it!",
+    "caption": "Food wasting is causing climate change, and every day millions suffer from starvation: buy and cook only what you eat and freeze leftovers.",
+    "duration": "day",
+    "level": "easy",
+    "SDGs": [2, 13]
+  },
+  {
+    "id": 21,
+    "title": "You aren't Iron-man",
+    "caption": "Sometimes your clothes can be wrinkle-free even if you don't iron them: pull them a little and they will be ready to wear.",
+    "duration": "week",
+    "level": "easy",
+    "SDGs": [7, 13]
+  },
+  {
+    "id": 22,
+    "title": "A+++",
+    "caption": "When you have to buy a new electronic device, look for the letter A on the label, which means low consumption. The more +, the better!",
+    "duration": "month",
+    "level": "easy",
+    "SDGs": [7, 13]
+  },
+  {
+    "id": 23,
+    "title": "Not great landscapes",
+    "caption": "Put each food in a defined place in your refrigerator and freezer, so when you need it, you don't have to admire the inside by holding the door open.",
+    "duration": "week",
+    "level": "medium",
+    "SDGs": [7, 13]
+  },
+  {
+    "id": 24,
+    "title": "Change your bulbs",
+    "caption": "Buy LED bulbs: they have a longer life and the same light, you spend up to 90% less on your electricity bill.",
+    "duration": "month",
+    "level": "easy",
+    "SDGs": [7, 13]
+  },
+  {
+    "id": 1,
+    "title": "Go Cycling",
+    "caption": "The bike is an excellent alternative to cars and other not eco-friendly means of transport. Furthermore, it is better for your health too.",
+    "duration": "day",
+    "level": "medium",
+    "SDGs": [3, 13]
+  },
+  {
+    "id": 37,
+    "title": "Love is not for sale",
+    "caption": "Before buying a pet try to consider adoption, lots of dropped animals are waiting for you, it's free and the pet will thank you with all its love!",
+    "duration": "month",
+    "level": "easy",
+    "SDGs": [13, 15]
+  },
+  {
+    "id": 30,
+    "title": "Game changer",
+    "caption": "Get organised with friends and go around the city to pick up trash and clean your environment. Focus on parks, woods or beaches. Turn it into a game!",
+    "duration": "month",
+    "level": "hard",
+    "SDGs": [11, 15]
+  },
+  {
+    "id": 39,
+    "title": "Every book is a book",
+    "caption": "Buy books in ebook or used version: they are cheaper and more ecological. Do it with school’s books too: less price, more notes. What could be better?",
+    "duration": "month",
+    "level": "medium",
+    "SDGs": [13, 15]
+  },
+  {
+    "id": 31,
+    "title": "Come on, speak up!",
+    "caption": "One of your personal rights is the chance to vote, don’t stand a part in front of an election, fight for your ideas and express your opinion!",
+    "duration": "year",
+    "level": "medium",
+    "SDGs": [11, 16]
+  },
+  {
+    "id": 36,
+    "title": "S-Cream?",
+    "caption": "Don't buy cosmetics tested on animals. Cruelty-free products are more sustainable, reliable and are better for your health too.",
+    "duration": "week",
+    "level": "easy",
+    "SDGs": [12, 15]
+  },
+  {
+    "id": 28,
+    "title": "By opposing end them",
+    "caption": "If you see a bad action, don’t stand still, oppose yourself against that. Only in this way you can make the world a better place without villains.",
+    "duration": "month",
+    "level": "hard",
+    "SDGs": [10, 16]
+  },
+  {
+    "id": 29,
+    "title": "Stand by me",
+    "caption": "Help people that need assistance! If you see an old person, a pregnant lady or a person with disabilities on the bus give them your place!",
+    "duration": "day",
+    "level": "medium",
+    "SDGs": [10]
+  },
+  {
+    "id": 32,
+    "title": "The Big Bag Theory",
+    "caption": "If you want to waste less, buy big packages of everything instead of lots of small ones!",
+    "duration": "week",
+    "level": "easy",
+    "SDGs": [11, 12]
+  },
+  {
+    "id": 19,
+    "title": "Recharge in charge",
+    "caption": "Using rechargeable batteries instead of disposable ones is good not only for the environment but also for your wallet!",
+    "duration": "month",
+    "level": "easy",
+    "SDGs": [7, 13]
+  },
+  {
+    "id": 42,
+    "title": "Green period",
+    "caption": "Try using sustainable alternatives instead of the classic tampon such as washable tampons or, if you want to try something different, menstrual cups.",
+    "duration": "month",
+    "level": "medium",
+    "SDGs": [13]
+  },
+  {
+    "id": 43,
+    "title": "One week, one fish!",
+    "caption": "Eating fish is very healthy: once a week, buy it at the local market. To preserve biodiversity be sure to buy a different type of fish each time!",
+    "duration": "week",
+    "level": "easy",
+    "SDGs": [13, 14]
+  },
+  {
+    "id": 44,
+    "title": "Clear water dream",
+    "caption": "Spend an afternoon cleaning a river, lake or beach near your home to make it a better place for you and your whole community.",
+    "duration": "month",
+    "level": "hard",
+    "SDGs": [13, 14]
+  },
+  {
+    "id": 45,
+    "title": "Water 1, Plastic 0",
+    "caption": "Stop buying bottled water: plastic is toxic to the environment! Try new methods: boil it, filter it, use chlorine or rainwater.",
+    "duration": "week",
+    "level": "medium",
+    "SDGs": [13, 14]
+  },
+  {
+    "id": 40,
+    "title": "Post-it? No!",
+    "caption": "Instead of using Post-its, download an app that reminds you of all your stuff: you will have it at your fingertips while saving a lot of trees.",
+    "duration": "week",
+    "level": "easy",
+    "SDGs": [13, 15]
+  },
+  {
+    "id": 41,
+    "title": "Mail? Why not email?",
+    "caption": "Stop using postal services. Switch to online communications, such as e-mail or instant messages. Discourage paper advertising too.",
+    "duration": "week",
+    "level": "easy",
+    "SDGs": [13, 15]
+  },
+  {
+    "id": 46,
+    "title": "Avoid printing",
+    "caption": "When required, print on both sides, monochrome, on recycled paper, checking the content and reducing the font size and margins.",
+    "duration": "day",
+    "level": "easy",
+    "SDGs": [15]
+  },
+  {
+    "id": 47,
+    "title": "Personal rights 1",
+    "caption": "Do you really know everything about your job? Find out which are your rights at work to be safe on every occasion and to resolve problems faster!",
+    "duration": "month",
+    "level": "medium",
+    "SDGs": [16]
+  },
+  {
+    "id": 48,
+    "title": "Personal rights 2",
+    "caption": "Check that your workplace has adequate health and safety measures and complain if they are not in place. Look for safety regulations on the internet.",
+    "duration": "month",
+    "level": "medium",
+    "SDGs": [16]
+  },
+  {
+    "id": 50,
+    "title": "Make a Com-Post",
+    "caption": "Composting food scraps can reduce climate impact while also saving nutrients and reducing the need for chemical fertilizers",
+    "duration": "month",
+    "level": "hard",
+    "SDGs": [13, 15]
+  },
+  {
+    "id": 49,
+    "title": "Note: take digital notes!",
+    "caption": "Buying local and in-season food helps to increase the productivity and incomes of small food producers and to reduce pollution caused by transports",
+    "duration": "week",
+    "level": "easy",
+    "SDGs": [2, 8]
+  },
+  {
+    "id": 11,
+    "title": "You snooze, you cool",
+    "caption": "Sleep 7.5-9 hours a night. Longer and better sleep positively affects the emotional centres of our brain and improves the immune system and memory.",
+    "duration": "day",
+    "level": "easy",
+    "SDGs": [3]
+  }
+]

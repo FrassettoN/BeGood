@@ -1,0 +1,57 @@
+@use '../abstracts' as *;
+
+.courseCard {
+  box-shadow: 0 0 15px rgba($color: #000000, $alpha: 0.2);
+  width: 15em;
+  color: white;
+
+  .content {
+    width: 15em;
+    border-radius: inherit;
+  }
+
+  .image {
+    padding: 1em 0;
+    img {
+      width: 50%;
+    }
+  }
+
+  .text {
+    line-height: 1.5em;
+  }
+
+  @include from-to(small, medium) {
+    border-radius: 20px;
+    .content {
+      border-top-right-radius: 100px;
+      background: var(--sdg-color);
+      height: 100%;
+      padding: 1em;
+    }
+  }
+
+  @include responde-to(medium) {
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+
+    .content {
+      background: white;
+    }
+    .image {
+      background: white;
+      border-radius: inherit;
+      img {
+        display: block;
+        margin: 0 auto;
+      }
+    }
+
+    .text {
+      border-top-right-radius: 50px;
+      padding: 1.5em 1em;
+      height: 17em;
+      background: var(--sdg-color);
+    }
+  }
+}

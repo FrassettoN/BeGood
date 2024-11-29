@@ -1,0 +1,180 @@
+@use '../abstracts/' as *;
+
+.action {
+  position: relative;
+  border-radius: 10px;
+  height: 21em;
+  width: 100%;
+  box-shadow: 0 0 20px rgba($color: #000000, $alpha: 0.3);
+  transform-style: preserve-3d;
+  cursor: pointer;
+  background-color: white;
+  transition: 0.8s;
+  -webkit-perspective: 1000px;
+  perspective: 1000px;
+  transform: rotateY(var(--rotate-y, 0));
+  margin: 0 auto;
+
+  &.flip {
+    // Using 179.9 should work also on IOS
+    --rotate-y: 179.9deg;
+  }
+
+  &__front,
+  &__back {
+    position: absolute;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    visibility: visible;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    width: 100%;
+    height: 100%;
+    padding: 1em;
+  }
+
+  &__front {
+    z-index: 2;
+    -webkit-transform: rotateY(0deg);
+    transform: rotateY(0deg);
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__title {
+    margin: 0;
+    font-size: 1.4rem;
+  }
+  &__caption {
+    cursor: text;
+    line-height: clamp(1.3em, 1.1vw, 1.5em);
+    font-size: clamp(1.1em, 1vw, 1.3em);
+  }
+  &__level {
+    color: $green;
+    text-transform: capitalize;
+  }
+  &__sdgs {
+    padding: 0;
+    margin: 0;
+    margin: auto 0;
+  }
+
+  &__sdg {
+    display: inline-block;
+    height: 4em;
+    width: 4em;
+  }
+
+  &__back {
+    -webkit-transform: rotateY(-180deg);
+    transform: rotateY(-180deg);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    z-index: 1;
+    &__title {
+      font-size: 1.6em;
+      text-align: center;
+      margin: 0;
+    }
+  }
+
+  &__buttons {
+    text-align: center;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.3em;
+    transform: rotate(45deg);
+  }
+  
+  &__button {
+    cursor: pointer;
+    border-radius: 10px;
+    text-align: center;
+    font-size: clamp(1rem, 0.8vw, 1.5rem);
+
+    &.icon{
+      padding: 0em;
+      margin: 0em;
+      border: none;
+    }
+    
+    .icon{
+      text-align: center;
+      display: block;
+      transform: rotate(-45deg);
+      font-size: 2.9em;
+      font-weight: bold;
+      &.automate{
+        font-size: 2.7em;
+      }
+    }
+
+    &:hover{
+      opacity: 0.8;
+    }
+  }
+
+  &__delete {
+    color: $red;
+    background: none;
+    border: none;
+    text-align: center;
+  }
+
+  @include responde-to(medium){
+    width: 20em;
+  }
+}
+
+.test {
+  position: relative;
+  height: 21em;
+  width: 100%;
+  background-color: #eee;
+
+  -webkit-transition: 0.8s;
+  transition: 0.8s;
+
+  -webkit-perspective: 1000px;
+  perspective: 1000px;
+
+  -webkit-transform: rotateY(var(--rotate-y, 0));
+  transform: rotateY(var(--rotate-y, 0));
+
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  
+  &.flip {
+    --rotate-y: 180deg;
+  }
+
+  &__front,
+  &__back {
+    position: absolute;
+
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+
+    visibility: visible;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+
+    width: 100%;
+    height: 100%;
+  }
+
+  &__front {
+    z-index: 2;
+    -webkit-transform: rotateY(0deg);
+    transform: rotateY(0deg);
+  }
+
+  &__back {
+    -webkit-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+  }
+}

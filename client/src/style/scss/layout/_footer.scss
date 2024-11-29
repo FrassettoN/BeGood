@@ -1,0 +1,28 @@
+@use '../abstracts' as *;
+
+.footer {
+  width: 100%;
+  margin-top: auto;
+  padding: 1em;
+  background-color: $green;
+  color: white;
+  h4, p {
+    margin: 0;
+    line-height: 1.6em;
+  }
+  a, p {
+    font-size: 0.85rem;
+  }
+  a {
+    text-decoration: underline $images-green;
+  }
+
+  @include responde-to(medium) {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  &.hidden {
+    display: none;
+  }
+}

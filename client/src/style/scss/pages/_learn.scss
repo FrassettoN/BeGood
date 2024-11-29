@@ -1,0 +1,13 @@
+@use '../abstracts' as *;
+
+.learnPage {
+  .courses {
+    width: 90%;
+    margin: 2em auto;
+    h2 {
+      display: inline-block;
+      margin: 2em 0;
+      border-bottom: 3px solid $green;
+    }
+  }
+}

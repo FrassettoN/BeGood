@@ -1,0 +1,21 @@
+@use '../abstracts' as *;
+
+.findNew {
+  display: flex;
+  width: 20em;
+  height: 21em;
+  padding: 2em 3em;
+  box-shadow: 0 0 5px 0 rgba($color: #000000, $alpha: 0.4);
+  border-radius: 10px;
+  text-align: center;
+  flex-direction: column;
+  justify-content: space-evenly;
+
+  h3 {
+    font-size: clamp(1.2rem, 1.3vw, 1.3rem);
+  }
+
+  a {
+    font-size: clamp(1rem, 1.3vw, 1.2rem);
+  }
+}

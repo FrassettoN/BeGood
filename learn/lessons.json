@@ -1,0 +1,182 @@
+[
+  {
+    "id": 11,
+    "title": "Street harassment",
+    "description": "",
+    "resource_type": "article",
+    "link": "https://www.bbc.com/news/av/world-41599143",
+    "number": 1,
+    "topic": 3
+  },
+  {
+    "id": 3,
+    "title": "History of Women Day",
+    "description": "",
+    "resource_type": "video",
+    "link": "https://www.youtube-nocookie.com/embed/7gb3ioatsSc",
+    "number": 3,
+    "topic": 1
+  },
+  {
+    "id": 20,
+    "title": "It's a men's issue",
+    "description": "",
+    "resource_type": "video",
+    "link": "https://embed.ted.com/talks/lang/en/jackson_katz_violence_against_women_it_s_a_men_s_issue",
+    "number": 5,
+    "topic": 4
+  },
+  {
+    "id": 5,
+    "title": "Four Waves of Feminism",
+    "description": "This article by Martha Rampton, professor at Oregon Pacific University, is a brief summary of how the feminist movement changed through the years, giving life to four different waves of feminism.",
+    "resource_type": "article",
+    "link": "https://www.pacificu.edu/magazine/four-waves-feminism",
+    "number": 5,
+    "topic": 1
+  },
+  {
+    "id": 9,
+    "title": "Harvard Bias Test",
+    "description": "Project Implicit is a non-profit international organization whose goal is to educate about implicit bias through online data collection and data-driven research. The Implicit Association Test measures the association between concepts and stereotypes with the purpose of raising awareness and promote self-reflection. Here you can find a test about gender stereotypes to challenge yourself.",
+    "resource_type": "article",
+    "link": "https://implicit.harvard.edu/implicit/takeatest.html",
+    "number": 1,
+    "topic": 2
+  },
+  {
+    "id": 10,
+    "title": "Economies and Equality",
+    "description": "How can gender equality benefit the global economy? At this link you can find an interactive report: select your country and learn how the economy could be improved by raising women’s participation in the workforce and what’s standing in between.",
+    "resource_type": "article",
+    "link": "https://www.cfr.org/womens-participation-in-global-economy/",
+    "number": 5,
+    "topic": 2
+  },
+  {
+    "id": 1,
+    "title": "A Global History of Women",
+    "description": "https://www.youtube-nocookie.com/embed/m_UjYOfmkn8",
+    "resource_type": "video",
+    "link": "https://www.youtube-nocookie.com/embed/m_UjYOfmkn8",
+    "number": 1,
+    "topic": 1
+  },
+  {
+    "id": 2,
+    "title": "Seneca Fall Convention",
+    "description": "",
+    "resource_type": "video",
+    "link": "https://www.youtube-nocookie.com/embed/TcYhuG1y3bc",
+    "number": 2,
+    "topic": 1
+  },
+  {
+    "id": 4,
+    "title": "Women’s suffrage march",
+    "description": "",
+    "resource_type": "video",
+    "link": "https://www.youtube-nocookie.com/embed/_KhYRqozTDE",
+    "number": 4,
+    "topic": 1
+  },
+  {
+    "id": 6,
+    "title": "Unconscious Bias",
+    "description": "",
+    "resource_type": "video",
+    "link": "https://www.youtube-nocookie.com/embed/dVp9Z5k0dEE",
+    "number": 2,
+    "topic": 2
+  },
+  {
+    "id": 7,
+    "title": "Reduce gender bias",
+    "description": "",
+    "resource_type": "video",
+    "link": "https://www.youtube-nocookie.com/embed/n_cGws3qGaA",
+    "number": 3,
+    "topic": 2
+  },
+  {
+    "id": 8,
+    "title": "How we hold women back",
+    "description": "",
+    "resource_type": "video",
+    "link": "https://www.youtube-nocookie.com/embed/YM1MBSczyzI",
+    "number": 4,
+    "topic": 2
+  },
+  {
+    "id": 19,
+    "title": "Slap her!",
+    "description": "",
+    "resource_type": "video",
+    "link": "https://www.youtube-nocookie.com/embed/b2OcKQ_mbiQ",
+    "number": 4,
+    "topic": 4
+  },
+  {
+    "id": 18,
+    "title": "ReMoved by Matanik",
+    "description": "",
+    "resource_type": "video",
+    "link": "https://www.youtube-nocookie.com/embed/lOeQUwdAjE0",
+    "number": 3,
+    "topic": 4
+  },
+  {
+    "id": 17,
+    "title": "Ending violence",
+    "description": "",
+    "resource_type": "video",
+    "link": "https://www.youtube-nocookie.com/embed/W_ZPHPutN-c",
+    "number": 2,
+    "topic": 4
+  },
+  {
+    "id": 16,
+    "title": "Violence against women",
+    "description": "",
+    "resource_type": "video",
+    "link": "https://www.youtube-nocookie.com/embed/Qc_GHITvTmI",
+    "number": 1,
+    "topic": 4
+  },
+  {
+    "id": 15,
+    "title": "It's not a compliment",
+    "description": "",
+    "resource_type": "video",
+    "link": "https://www.youtube-nocookie.com/embed/w75dyFGLBF0",
+    "number": 5,
+    "topic": 3
+  },
+  {
+    "id": 14,
+    "title": "Questions for catcallers",
+    "description": "",
+    "resource_type": "video",
+    "link": "https://www.youtube-nocookie.com/embed/WggsJDJLxlU",
+    "number": 4,
+    "topic": 3
+  },
+  {
+    "id": 13,
+    "title": "Respond to harassers",
+    "description": "This article is a very useful resource, published by Hollaback! NGO, if you want to know how you can respond to street harassers.",
+    "resource_type": "article",
+    "link": "https://www.ihollaback.org/responding-to-harassers/",
+    "number": 3,
+    "topic": 3
+  },
+  {
+    "id": 12,
+    "title": "Ten Hours of Walking NYC",
+    "description": "",
+    "resource_type": "video",
+    "link": "https://www.youtube-nocookie.com/embed/b1XGPvbWn0A",
+    "number": 2,
+    "topic": 3
+  }
+]

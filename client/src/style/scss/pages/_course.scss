@@ -1,0 +1,16 @@
+@use '../abstracts' as *;
+
+.coursePage {
+  width: 90%;
+  h1 {
+    color: var(--sdg-color);
+  }
+  h2 {
+    border-bottom: 2px solid var(--sdg-color);
+    display: inline-block;
+    margin: 1.5em 0;
+  }
+  .description {
+    text-align: justify;
+  }
+}

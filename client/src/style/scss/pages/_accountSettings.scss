@@ -1,0 +1,90 @@
+@use '../abstracts' as *;
+
+.settingsPage {
+  .container {
+    margin: 1em 5%;
+    @include from-to(small, medium) {
+      display: flex;
+      flex-direction: column;
+
+      aside {
+        order: 3;
+        margin: 1em 0;
+
+        nav {
+          gap: 1em;
+        }
+      }
+    }
+    @include responde-to(medium) {
+      display: grid;
+      grid-template-columns: 30% 70%;
+      gap: 2em;
+      nav {
+        gap: 1.5em;
+      }
+    }
+    nav {
+      width: 100%;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      a {
+        box-shadow: 0px 0px 5px rgba($color: #000000, $alpha: 0.25);
+        display: block;
+        width: 100%;
+        padding: 0.7em;
+        border-radius: 10px;
+
+        &.active {
+          color: white;
+          background-color: $green;
+        }
+      }
+    }
+
+    form {
+      height: 100%;
+      padding: 0;
+      // border:2px solid rgba($color: $green, $alpha: 0.6);
+      // box-shadow: 0px 0px 5px rgba($color: #000000, $alpha: 0.25);
+      border-radius: 10px;
+      section {
+        label{
+          color: $green;
+          font-weight: bold;
+        }
+        textarea {
+          height: 8em;
+        }
+      }
+      input[type='submit'] {
+        display: block;
+        margin: 2em auto;
+        width: 90%;
+      }
+
+      .forgotPassword {
+        color: white;
+      }
+    }
+
+    .passwordSuccessScreen {
+      align-items: center;
+      width: 70%;
+      border-radius: 10px;
+      margin: 2em auto;
+      background: white;
+      padding: 3em 0;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      h2 {
+        margin: 0 auto 2em auto;
+      }
+      img {
+        width: 6em;
+      }
+    }
+  }
+}

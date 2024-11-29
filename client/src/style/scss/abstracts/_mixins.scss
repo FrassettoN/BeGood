@@ -1,0 +1,20 @@
+@use './breakpoints' as *;
+@use 'sass:map';
+
+@mixin responde-to($key) {
+  $size: map.get($breakpoints, $key);
+
+  @media only screen and (min-width: $size) {
+    @content;
+  }
+}
+
+@mixin from-to($from, $to) {
+  $from-size: map.get($breakpoints, $from);
+  $to-size: map.get($breakpoints, $to);
+
+  // Avoid overlapping
+  @media only screen and (min-width: $from-size) and (max-width: $to-size - 1) {
+    @content;
+  }
+}

@@ -1,0 +1,34 @@
+[
+  {
+    "id": 1,
+    "title": "Historical Aspect",
+    "description": "In this section you will get to learn more about the movements and the historical events that radically changed the condition of women around the world. It is important to remember the progress that has been made thanks to feminist movements during the last century, with the awareness that there are still a lot of battles that have to be fought in order to reach gender equality.",
+    "caption": "Learn about the movements and the historical events that radically changed the condition of women around the world.",
+    "number": 1,
+    "course": 1
+  },
+  {
+    "id": 2,
+    "title": "Gender Bias",
+    "description": "Gender biases exist in many contexts and we often have them too. In the following section you will find out how to spot them and how not to be influenced by them. These biases have important consequences that affect negatively different aspects of human life, such as the economy.",
+    "caption": "Find out how to spot gender biases them and how not to be influenced by them.",
+    "number": 2,
+    "course": 1
+  },
+  {
+    "id": 3,
+    "title": "Catcalling",
+    "description": "Catcalling is the act of shouting, harassing and often sexually suggestive, threatening, or derisive comments at someone publicly. Nowadays there are many victims of street harassment and it always causes shame and embarrassment. In this part you will learn how to react, you will realise how many women are humiliated everyday and you will understand how much catcalling is offensive and NOT a compliment.",
+    "caption": "Learn what catcalling is, understand how much it is offensive and be prepared to react.",
+    "number": 3,
+    "course": 1
+  },
+  {
+    "id": 4,
+    "title": "Domestic Violence",
+    "description": "Sample text: Why talk about a topic that is already addressed on many occasions? \r\nThe reason is simple: it is still relevant and often not treated in the right way. It is important to reflect on this issue, even, indeed above all, if you believe you are very far from toxic environments, because you may not realise it.",
+    "caption": "Testo di prova",
+    "number": 4,
+    "course": 1
+  }
+]

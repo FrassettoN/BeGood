@@ -1,0 +1,23 @@
+@use '../abstracts/' as *;
+
+.welcomeBox {
+  background: $green;
+  color: white;
+  width: 80%;
+  padding: 1em 1.5em;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  box-shadow: 0 0 15px rgba($color: #000000, $alpha: 0.5);
+  font-size: clamp(1em, 4vw, 1.5em);
+  p {
+    margin: 0;
+    line-height: 1.5em;
+  }
+  .username {
+    font-weight: bold;
+  }
+
+  @include responde-to(medium) {
+    width: 45%;
+  }
+}

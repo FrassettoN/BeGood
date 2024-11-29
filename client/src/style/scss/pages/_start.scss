@@ -1,0 +1,277 @@
+@use '../abstracts/' as *;
+
+.landing {
+  padding: 5em 0;
+  margin: 0 auto;
+
+  h3 {
+    text-transform: capitalize;
+    font-weight: 700;
+    font-size: clamp(2rem, 2.5vw, 4rem);
+    word-spacing: 2px;
+  }
+
+  &__intro {
+    align-items: center;
+    background-image: url('#{$images}/sdg_goals/sdg_wheel/transparent.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    display: flex;
+    height: 80vh;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    width: 100%;
+  }
+
+  &__title {
+    width: 8em;
+    margin: 0 auto;
+    padding: 0;
+    padding-bottom: 0.8em;
+    line-height: clamp(2rem, 5vw, 3rem);
+    font-size: clamp(1.3rem, 5vw, 2rem);
+    color: $black;
+    animation-name: fadein;
+    animation-duration: 3s;
+
+    span {
+      font-size: clamp(1.7rem, 4vw, 2rem);
+      color: $green;
+    }
+  }
+
+  & > section {
+    width: 100%;
+    padding: 4em 0 0 0;
+    margin: 0 auto;
+    text-align: center;
+
+    & > h3 {
+      font-size: clamp(2rem, 4vw, 4rem);
+      margin: 1em auto;
+      text-transform: uppercase;
+      // text-decoration: underline $green;
+    }
+
+    & > p {
+      width: 85%;
+      font-size: 1.2em;
+      line-height: 1.5em;
+      margin: 0 auto;
+      padding: 0;
+      text-align: left;
+
+      @include responde-to(medium) {
+        text-align: justify;
+      }
+    }
+
+    span{
+      font-weight: bold;
+    }
+
+    &.text_section {
+      div {
+        display: flex;
+        text-align: left;
+        font-size: clamp(1.1rem, 2vw, 1.3rem);
+        line-height: 1.6em;
+
+        img { 
+          width: 100%;
+        }
+        
+        p {
+          padding: 0 1em;
+
+          br {
+            content: "";
+            margin: 2em;
+            display: block;
+            font-size: 24%;
+          }
+        }
+
+        @include from-to(small, medium) {
+          flex-direction: column;
+          text-align: center;
+        }
+        @include responde-to(medium) {
+          flex-direction: row;
+          img {
+            width: 55%;
+          }
+        }
+      }
+    }
+
+    &#about {
+        @include responde-to(medium) {
+          p {
+            padding: 1em 2em;
+          }
+          img {
+            order: 1;
+          }
+        }
+    }
+  }
+
+  &__join {
+    margin: auto;
+    padding: 4em;
+    box-shadow: 0 0 2px $black;
+    border-radius: 15px;
+    border: 1px solid $black;
+    display: flex;
+    z-index: 1;
+
+    &__links {
+      margin: auto;
+      text-align: center;
+    }
+
+    a,
+    span {
+      display: block;
+    }
+
+    span {
+      padding: 1em;
+    }
+
+    @include from-to(small, medium) {
+      flex-direction: column;
+      width: 95%;
+
+      img {
+        width: 100%;
+      }
+    }
+
+    @include responde-to(medium) {
+      width: 80%;
+      flex-direction: row;
+
+      img {
+        width: 50%;
+      }
+
+      &__links {
+        width: 35%;
+      }
+    }
+  }
+
+  &__cards {
+    width: 100%;
+    padding: 1.5em 0;
+    background: $blue;
+  }
+
+  &__card {
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 0 5px 0 rgba($color: #000000, $alpha: 0.1);
+    margin: 5em auto;
+    padding: 2em;
+    text-align: center;
+    width: 90%;
+    z-index: -2;
+
+    h3 {
+      color: $green;
+      margin: 0;
+    }
+
+    p {
+      font-size: clamp(1rem, 2vw, 1.2em);
+    }
+    
+    &__text {
+      p{
+        font-size: clamp(1rem, 1.5vw, 1.5rem);
+        line-height: 1.6em;
+      }
+    }
+
+    @include responde-to(medium) {
+      display: flex;
+      padding: 1.5em 2em;
+      text-align: left;
+
+      &__text {
+        padding: 2em;
+        width: 60%;
+      }
+    }
+
+    &__img {
+      border-radius: 5px;
+      pointer-events: none;
+
+      @include from-to(small, medium) {
+        width: 100%;
+        margin: -4em auto 3em auto;
+      }
+
+      @include responde-to(medium) {
+        width: 30%;
+        order: 1;
+        margin-left: auto;
+      }
+    }
+
+    &__action {
+      pointer-events: none;
+      max-width: 21em;
+      margin: 0;
+
+      @include from-to(small, medium) {
+        margin: -4em auto 3em auto;
+        max-width: 20em;
+      }
+
+      @include responde-to(medium) {
+        justify-self: flex-end;
+        margin-left: auto;
+        order: 2;
+      }
+    }
+  }
+}
+
+.getStarted {
+  margin-bottom: 2rem;
+  background: white;
+  color: $blue;
+  span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 300ms;
+
+    &:after {
+      content: '\00bb';
+      position: absolute;
+      opacity: 0;
+      top: 0;
+      right: -20px;
+      transition: 100ms;
+    }
+  }
+
+  &:hover {
+    color: white;
+    span {
+      padding-right: 35px;
+
+      &:after {
+        opacity: 1;
+        right: 0;
+      }
+    }
+  }
+}

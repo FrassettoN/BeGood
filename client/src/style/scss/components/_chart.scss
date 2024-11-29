@@ -1,0 +1,107 @@
+@use '../abstracts' as *;
+
+$size: calc(100% / 22);
+
+.chart {
+  margin: 1em auto;
+  @include from-to(small, medium) {
+    display: grid;
+    width: 100%;
+    .cards {
+      display: block;
+    }
+    .bars-chart {
+      display: none;
+    }
+  }
+
+  @include responde-to(medium) {
+    grid-column: 1 / -1;
+    grid-row: 3 / 5;
+
+    .cards {
+      display: none;
+    }
+    .bars-chart {
+      display: block;
+    }
+  }
+
+  h3 {
+    margin-bottom: 3em auto;
+  }
+
+  .cards {
+    .card {
+      display: flex;
+      padding: 0.5em;
+      border: 3px solid var(--sdg-color);
+      border-radius: 5px;
+      width: 95%;
+      margin: 0.5em auto;
+      gap: 3em;
+
+      img {
+        width: 4em;
+        margin: auto;
+      }
+
+      p {
+        width: 4em;
+        margin: auto;
+        font-weight: bold;
+        span {
+          display: block;
+          color: var(--sdg-color);
+        }
+      }
+
+      &:nth-child(even) {
+        .card--lessons {
+          order: 1;
+        }
+
+        .card--actions {
+          order: 2;
+        }
+        img {
+          order: 3;
+        }
+      }
+    }
+  }
+
+  .bars {
+    padding: 1em;
+    justify-content: space-between;
+    display: flex;
+    align-items: flex-end;
+    border-left: 2px solid black;
+    section {
+      width: $size;
+      display: flex;
+      flex-direction: column;
+      p {
+        margin-top: auto;
+      }
+      div {
+        margin-top: auto;
+        display: block;
+        border-radius: 50px;
+        background-color: var(--sdg-color);
+      }
+    }
+  }
+
+  .icons {
+    display: flex;
+    padding: 1em;
+    border-left: 2px solid black;
+    border-top: 2px solid black;
+    justify-content: space-between;
+    img {
+      width: $size;
+      height: $size;
+    }
+  }
+}

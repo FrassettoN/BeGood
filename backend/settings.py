@@ -34,12 +34,8 @@ ALLOWED_HOSTS = [
     "localhost",
     "begood.tips",
     "www.begood.tips",
-    "begood.herokuapp.com",
+    "begood-app-exvz9.ondigitalocean.app",
 ]
-
-# Render on render.com
-RENDER_EXTERNAL_HOSTNAME = os.environ.get("RENDER_EXTERNAL_HOSTNAME")
-
 
 # Application definition
 INSTALLED_APPS = [

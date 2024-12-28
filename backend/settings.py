@@ -34,7 +34,7 @@ ALLOWED_HOSTS = [
     "localhost",
     "begood.tips",
     "www.begood.tips",
-    "begood-app-exvz9.ondigitalocean.app",
+    "begood-n735g.ondigitalocean.app",
 ]
 
 # Application definition
@@ -197,7 +197,7 @@ DATABASES = {
         "USER": os.environ.get("DATABASE_USER") or "",
         "PASSWORD": os.environ.get("DATABASE_PASSWORD") or "",
         "HOST": os.environ.get("DATABASE_HOST") or "",
-        "POST": "5432",
+        "POST": os.environ.get("DATABASE_PORT") or "",
     },
 }
 

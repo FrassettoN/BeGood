@@ -193,11 +193,12 @@ DATABASES = {
     },
     "production": {
         "ENGINE": "" if DEBUG else "django.db.backends.postgresql_psycopg2",
+        "URL": os.environ.get("DATABASE_URL") or "",
         "NAME": os.environ.get("DATABASE_NAME") or "",
         "USER": os.environ.get("DATABASE_USER") or "",
         "PASSWORD": os.environ.get("DATABASE_PASSWORD") or "",
         "HOST": os.environ.get("DATABASE_HOST") or "",
-        "POST": os.environ.get("DATABASE_PORT") or "",
+        "PORT": os.environ.get("DATABASE_PORT") or "",
     },
 }
 

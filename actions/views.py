@@ -15,16 +15,16 @@ import json
 
 @api_view(["GET"])
 def fill_database(request):
-    with open("./actions/sdgs.json", "r") as file:
+    with open("./data/sdgs.json", "r") as file:
         sdgs_data = json.load(file)
 
     for sdg in sdgs_data:
         try:
             SDG.objects.create(number=sdg["number"], title=sdg["title"])
         except IntegrityError:
-            print(f"{sdg["number"]} already present")
+            print(f"{sdg['number']} already present")
 
-    with open("./actions/actions.json", "r") as file:
+    with open("./data/actions.json", "r") as file:
         actions_data = json.load(file)
 
     for action in actions_data:
@@ -38,9 +38,9 @@ def fill_database(request):
             action_db.SDGs.set(SDG.objects.filter(number__in=action["SDGs"]))
 
         except IntegrityError as e:
-            print(f"{action["title"]} already present")
+            print(f"{action['title']} already present")
 
-    with open("./learn/courses.json", "r") as file:
+    with open("./data/courses.json", "r") as file:
         courses_data = json.load(file)
 
     for course in courses_data:
@@ -54,9 +54,9 @@ def fill_database(request):
             )
         except IntegrityError as e:
             print(str(e))
-            print(f"{course["title"]} already present")
+            print(f"{course['title']} already present")
 
-    with open("./learn/topics.json", "r") as file:
+    with open("./data/topics.json", "r") as file:
         topics_data = json.load(file)
 
     for topic in topics_data:
@@ -70,9 +70,9 @@ def fill_database(request):
             )
         except IntegrityError as e:
             print(str(e))
-            print(f"{topic["title"]} already present")
+            print(f"{topic['title']} already present")
 
-    with open("./learn/lessons.json", "r") as file:
+    with open("./data/lessons.json", "r") as file:
         lessons_data = json.load(file)
 
     for lesson in lessons_data:
@@ -87,7 +87,7 @@ def fill_database(request):
             )
         except IntegrityError as e:
             print(str(e))
-            print(f"{lesson["title"]} already present")
+            print(f"{lesson['title']} already present")
 
     return Response("All right")
 

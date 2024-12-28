@@ -189,7 +189,7 @@ DATABASES = {
         "USER": "postgres",
         "PASSWORD": "password",
         "HOST": "localhost",
-        "POST": "5432",
+        "PORT": "5432",
     },
     "production": {
         "ENGINE": "" if DEBUG else "django.db.backends.postgresql_psycopg2",

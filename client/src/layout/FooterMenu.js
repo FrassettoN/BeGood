@@ -18,9 +18,9 @@ const FooterMenu = () => {
         <NavLink to='/learn' end active='active'>
           <TbSchool className='icon' />
         </NavLink>
-        <NavLink to='/people' end active='active'>
+        {/* <NavLink to='/people' end active='active'>
           <TbClover className='icon' />
-        </NavLink>
+        </NavLink> */}
         <NavLink to='/account' end active='active'>
           <VscAccount className='icon' />
         </NavLink>

@@ -1,8 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.4f008ee1.css",
-    "main.js": "/static/js/main.6aa3165c.js",
-    "static/js/377.d64a8011.chunk.js": "/static/js/377.d64a8011.chunk.js",
+    "main.js": "/static/js/main.43c3dbcf.js",
     "static/js/426.6ce12f5e.chunk.js": "/static/js/426.6ce12f5e.chunk.js",
     "static/js/439.cc278095.chunk.js": "/static/js/439.cc278095.chunk.js",
     "static/js/845.7339d03a.chunk.js": "/static/js/845.7339d03a.chunk.js",
@@ -27,7 +26,6 @@
     "static/js/50.03032635.chunk.js": "/static/js/50.03032635.chunk.js",
     "static/js/155.1e3da37c.chunk.js": "/static/js/155.1e3da37c.chunk.js",
     "static/js/908.4a52a05e.chunk.js": "/static/js/908.4a52a05e.chunk.js",
-    "static/media/alberi.jpg": "/static/media/alberi.3e0ce02a09c9bbcd7c86.jpg",
     "static/media/SaveEarth.svg": "/static/media/SaveEarth.34be861f52b61d947469f1a47ac5a0de.svg",
     "static/media/pianta_grassa.jpg": "/static/media/pianta_grassa.83b49fc3f229770f72d4.jpg",
     "static/media/earthGroup.svg": "/static/media/earthGroup.d1c18419f34c224ee66f7ea75ef760c8.svg",
@@ -49,10 +47,10 @@
     "static/media/transparent.png": "/static/media/transparent.ee0f40911a97b2a9d909.png",
     "index.html": "/index.html",
     "main.4f008ee1.css.map": "/static/css/main.4f008ee1.css.map",
-    "main.6aa3165c.js.map": "/static/js/main.6aa3165c.js.map"
+    "main.43c3dbcf.js.map": "/static/js/main.43c3dbcf.js.map"
   },
   "entrypoints": [
     "static/css/main.4f008ee1.css",
-    "static/js/main.6aa3165c.js"
+    "static/js/main.43c3dbcf.js"
   ]
 }

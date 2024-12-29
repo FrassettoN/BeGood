@@ -26,7 +26,7 @@ class CustomJWTAuthentication(JWTAuthentication):
             raw_token = self.get_raw_token(header)
             data = {"access": raw_token}
 
-        if raw_token is None:
+        if data is None or raw_token is None:
             return None
         if isinstance(data["access"], bytes) and data["access"] == b"undefined":
             return None

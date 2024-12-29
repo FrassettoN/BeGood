@@ -118,32 +118,37 @@ def signup_user(request):
 
 class CustomLoginView(LoginView):
     def post(self, request, *args, **kwargs):
+        csrf.get_token(request)
+
         request.data["username"] = normalize_email(request.data["email"])
+        remember_me = request.data.get("rememberMe")
         try:
             response = super().post(request, *args, **kwargs)
         except ValidationError:
             data = {"detail": "Incorrect Email or Password"}
             return Response(data, status=status.HTTP_401_UNAUTHORIZED)
 
-        csrf.get_token(request)
-
         user_data = response.data.get("user")
-        if user_data:
-            user = User.objects.filter(id=user_data.get("pk")).first()
+        if not user_data:
+            data = {"detail": "Something went wrong :("}
+            return Response(data, status=status.HTTP_400_BAD_REQUEST)
 
-            if not user.is_active:
-                data = {"detail": "This account is not active!"}
-                return Response(data, status=status.HTTP_404_NOT_FOUND)
+        user = User.objects.filter(id=user_data.get("pk")).first()
+        if not user.is_active:
+            data = {"detail": "This account is not active!"}
+            return Response(data, status=status.HTTP_404_NOT_FOUND)
 
-            refresh_actions(user)
+        refresh_actions(user)
+        user_tokens = get_tokens_for_user(user)
 
-        if request.data.get("rememberMe"):
-            set_refresh_cookie(response, response.data["refresh"])
+        if remember_me:
+            set_refresh_cookie(response, user_tokens["refresh"])
 
         response.data["tokens"] = {
-            "access": response.data["access"],
-            "refresh": response.data["refresh"],
+            "access": user_tokens["access"],
+            "refresh": user_tokens["refresh"] if remember_me else "",
         }
+
         return response
 
 

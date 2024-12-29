@@ -144,8 +144,8 @@ SIMPLE_JWT = {
 
 REST_AUTH = {
     "USE_JWT": True,
-    "JWT_AUTH_COOKIE": "jwt-auth",
-    "JWT_AUTH_HTTPONLY": not DEBUG,
+    "JWT_AUTH_COOKIE": "access_token",
+    "JWT_REFRESH_COOKIE": "refresh_token",
 }
 AUTHENTICATION_BACKENDS = (
     "django.contrib.auth.backends.ModelBackend",

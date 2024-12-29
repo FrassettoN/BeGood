@@ -13,6 +13,7 @@ from rest_framework.response import Response
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import IsAuthenticated, IsAdminUser, AllowAny
 from rest_framework.views import APIView
+from rest_framework.exceptions import ValidationError
 
 # Simple JWT
 from rest_framework_simplejwt.tokens import RefreshToken
@@ -118,7 +119,12 @@ def signup_user(request):
 class CustomLoginView(LoginView):
     def post(self, request, *args, **kwargs):
         request.data["username"] = normalize_email(request.data["email"])
-        response = super().post(request, *args, **kwargs)
+        try:
+            response = super().post(request, *args, **kwargs)
+        except ValidationError:
+            data = {"detail": "Incorrect Email or Password"}
+            return Response(data, status=status.HTTP_401_UNAUTHORIZED)
+
         csrf.get_token(request)
 
         user_data = response.data.get("user")

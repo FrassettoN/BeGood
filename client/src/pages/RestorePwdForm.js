@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 import resetPwdImage from '../images/vendor/reset_pwd.svg';
 import { resetPassword } from '../redux/actions/userActions';
+import Title from '../components/Title';
 
 const RestorePwdForm = () => {
   const dispatch = useDispatch();
@@ -29,9 +30,7 @@ const RestorePwdForm = () => {
 
   return (
     <>
-      {/* <Helmet>
-        <title>Reset Password - BeGood</title>
-      </Helmet> */}
+      <Title title='Reset Password - BeGood' />
       {loading && <div className='spinner'></div>}
       <div className='authContainer'>
         <aside>

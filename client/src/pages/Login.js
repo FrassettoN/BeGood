@@ -6,6 +6,7 @@ import { useForm } from 'react-hook-form';
 import { Link, Navigate } from 'react-router-dom';
 import LoginImage from '../images/vendor/login.svg';
 import { useLocation } from 'react-router-dom';
+import Title from '../components/Title';
 
 const Login = () => {
   const dispatch = useDispatch();
@@ -32,9 +33,7 @@ const Login = () => {
 
   return (
     <>
-      {/* <Helmet>
-        <title>Login - BeGood</title>
-      </Helmet> */}
+      <Title title='Login - BeGood' />
       <main className='loginPage'>
         {user && <Navigate to={redirectLocation} />}
         {loading && <div className='spinner'></div>}

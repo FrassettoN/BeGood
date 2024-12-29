@@ -6,6 +6,7 @@ import Protected from '../../components/Protected';
 import { getCourses } from '../../redux/actions/learnActions';
 import { getUserDetails } from '../../redux/actions/userActions';
 import Focus from '../../components/Focus';
+import Title from '../../components/Title';
 
 const Learn = () => {
   const dispatch = useDispatch();
@@ -25,9 +26,7 @@ const Learn = () => {
 
   return (
     <>
-      {/* <Helmet>
-        <title>Learn - BeGood</title>
-      </Helmet> */}
+      <Title title='Learn - BeGood' />
       <main className='learnPage'>
         <Focus />
         <Protected />

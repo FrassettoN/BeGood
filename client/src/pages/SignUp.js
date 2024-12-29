@@ -6,6 +6,7 @@ import { useForm } from 'react-hook-form';
 import { Link, Navigate } from 'react-router-dom';
 
 import singUpImage from '../images/vendor/signUp.svg';
+import Title from '../components/Title';
 
 const SignUp = () => {
   const dispatch = useDispatch();
@@ -36,9 +37,7 @@ const SignUp = () => {
 
   return (
     <>
-      {/* <Helmet>
-        <title>Sign Up - BeGood</title>
-      </Helmet> */}
+      <Title title='Sign Up - BeGood' />
       <main>
         {user && <Navigate to={'/actions/ongoing/'} />}
         {loading && <div className='spinner'></div>}

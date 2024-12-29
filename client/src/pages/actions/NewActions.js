@@ -4,6 +4,7 @@ import Action from '../../components/actions/Action';
 import { getNewActions } from '../../redux/actions/actionActions';
 import NavActions from '../../components/actions/NavActions';
 import Protected from '../../components/Protected';
+import Title from '../../components/Title';
 
 const NewActions = () => {
   const dispatch = useDispatch();
@@ -29,23 +30,30 @@ const NewActions = () => {
   };
 
   return (
-    <main className='actionsPage'>
-      <Protected />
-      {error && <div className='appError'>{error}</div>}
-      {loading && <div className='spinner'></div>}
+    <>
+      <Title title='New Actions - BeGood' />
+      <main className='actionsPage'>
+        <Protected />
+        {error && <div className='appError'>{error}</div>}
+        {loading && <div className='spinner'></div>}
 
-      <h1 className='appPageTitle'>New Actions</h1>
+        <h1 className='appPageTitle'>New Actions</h1>
 
-      <NavActions />
+        <NavActions />
 
-      <div className='actions'>{actions && renderActions(actions, 'day')}</div>
+        <div className='actions'>
+          {actions && renderActions(actions, 'day')}
+        </div>
 
-      <div className='actions'>{actions && renderActions(actions, 'week')}</div>
+        <div className='actions'>
+          {actions && renderActions(actions, 'week')}
+        </div>
 
-      <div className='actions'>
-        {actions && renderActions(actions, 'month')}
-      </div>
-    </main>
+        <div className='actions'>
+          {actions && renderActions(actions, 'month')}
+        </div>
+      </main>
+    </>
   );
 };
 

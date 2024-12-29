@@ -5,6 +5,7 @@ import FindNewActions from '../../components/actions/FindNewActions';
 import { getOngoingActions } from '../../redux/actions/actionActions';
 import NavActions from '../../components/actions/NavActions';
 import Protected from '../../components/Protected';
+import Title from '../../components/Title';
 
 const OngoingActions = () => {
   const dispatch = useDispatch();
@@ -31,36 +32,39 @@ const OngoingActions = () => {
   };
 
   return (
-    <main className='actionsPage'>
-      <Protected />
-      {error && <h2 className='appError'>{error}</h2>}
-      {message && <p className='appMessage'>{message}</p>}
-      {loading && <div className='spinner'></div>}
-      <h1 className='appPageTitle'>My Actions</h1>
+    <>
+      <Title title='My Actions - BeGood' />
+      <main className='actionsPage'>
+        <Protected />
+        {error && <h2 className='appError'>{error}</h2>}
+        {message && <p className='appMessage'>{message}</p>}
+        {loading && <div className='spinner'></div>}
+        <h1 className='appPageTitle'>My Actions</h1>
 
-      <NavActions />
+        <NavActions />
 
-      <div className='actions'>
-        <h2>
-          To do <span>today</span>:
-        </h2>
-        {actions && renderActions(actions, 'day')}
-      </div>
+        <div className='actions'>
+          <h2>
+            To do <span>today</span>:
+          </h2>
+          {actions && renderActions(actions, 'day')}
+        </div>
 
-      <div className='actions'>
-        <h2>
-          To do <span>this week</span>:
-        </h2>
-        {actions && renderActions(actions, 'week')}
-      </div>
+        <div className='actions'>
+          <h2>
+            To do <span>this week</span>:
+          </h2>
+          {actions && renderActions(actions, 'week')}
+        </div>
 
-      <div className='actions'>
-        <h2>
-          To do <span>this month</span>:
-        </h2>
-        {actions && renderActions(actions, 'month')}
-      </div>
-    </main>
+        <div className='actions'>
+          <h2>
+            To do <span>this month</span>:
+          </h2>
+          {actions && renderActions(actions, 'month')}
+        </div>
+      </main>
+    </>
   );
 };
 

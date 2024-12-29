@@ -8,6 +8,7 @@ import { getUserDetails } from '../redux/actions/userActions';
 import { BsFillGearFill } from 'react-icons/bs';
 import { Link } from 'react-router-dom';
 import Chart from '../components/Chart';
+import Title from '../components/Title';
 
 const Account = () => {
   const dispatch = useDispatch();
@@ -26,9 +27,7 @@ const Account = () => {
 
   return (
     <>
-      {/* <Helmet>
-        <title>{user?.info?.username || 'Account'} - BeGood</title>
-      </Helmet> */}
+      <Title title='Account - BeGood' />
       <main className='accountPage'>
         <Focus />
         <Protected />

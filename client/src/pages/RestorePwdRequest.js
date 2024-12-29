@@ -5,6 +5,7 @@ import { useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
 import restorePwdImage from '../images/vendor/restore_pwd.svg';
 import { restorePasswordRequest } from '../redux/actions/userActions';
+import Title from '../components/Title';
 
 const RestorePwd = () => {
   const dispatch = useDispatch();
@@ -28,9 +29,7 @@ const RestorePwd = () => {
 
   return (
     <>
-      {/* <Helmet>
-        <title>Restore Password - BeGood</title>
-      </Helmet> */}
+      <Title title='Restore Password - BeGood' />
       {loading && <div className='spinner'></div>}
       <div className='authContainer'>
         <form onSubmit={handleSubmit(onSubmit)}>

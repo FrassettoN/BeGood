@@ -4,13 +4,12 @@ import Protected from '../../components/Protected';
 // import { Helmet } from 'react-helmet';
 import SearchPeople from '../../components/people/SearchPeople';
 import Feed from '../../components/people/Feed';
+import Title from '../../components/Title';
 
 const People = () => {
   return (
     <>
-      {/* <Helmet>
-        <title>People - BeGood</title>
-      </Helmet> */}
+      <Title title='People - BeGood' />
       <main className='peoplePage'>
         <Focus />
         <Protected />

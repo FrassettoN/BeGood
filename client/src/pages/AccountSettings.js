@@ -9,6 +9,7 @@ import DeleteAccount from '../components/settings/DeleteAccount';
 import Profile from '../components/settings/Profile';
 import { getUserDetails } from '../redux/actions/userActions';
 import SettingsImage from '../images/vendor/settings.svg';
+import Title from '../components/Title';
 
 const AccountSettings = () => {
   const dispatch = useDispatch();
@@ -29,9 +30,7 @@ const AccountSettings = () => {
 
   return (
     <>
-      {/* <Helmet>
-        <title>Settings - BeGood</title>
-      </Helmet> */}
+      <Title title='Settings - BeGood' />
 
       <main className='settingsPage'>
         <h1 className='appPageTitle'>Settings</h1>

@@ -5,6 +5,7 @@ import { useParams } from 'react-router-dom';
 import Protected from '../../components/Protected';
 import TopicCard from '../../components/learn/TopicCard';
 import { getCourseDetails } from '../../redux/actions/learnActions';
+import Title from '../../components/Title';
 
 const Course = () => {
   const { course_id } = useParams();
@@ -19,9 +20,7 @@ const Course = () => {
 
   return (
     <>
-      {/* <Helmet>
-        <title>{`${course?.title || 'Course'} - BeGood`}</title>
-      </Helmet> */}
+      <Title title={`${course?.title || 'Course'} - BeGood`} />
       <main className={`coursePage sdg--${course?.info?.SDG}`}>
         <Protected />
         {error && <div className='appError'>{error}</div>}

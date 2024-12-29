@@ -29,44 +29,50 @@ const App = () => {
   }, [dispatch]);
 
   return (
-    <Router>
-      <Header />
-      <Routes>
-        {/* Start Page and Authentication */}
-        <Route element={<StartPage />} path='/' exact />
-        <Route element={<Login />} path='/login' exact />
-        <Route element={<SignUp />} path='/signup' exact />
-        <Route
-          element={<RestorePwdRequest />}
-          path='/auth/restore_password'
-          exact
-        />
-        <Route element={<RestorePwdForm />} path='/auth/password_reset' exact />
+    <>
+      <Router>
+        <Header />
+        <Routes>
+          {/* Start Page and Authentication */}
+          <Route element={<StartPage />} path='/' exact />
+          <Route element={<Login />} path='/login' exact />
+          <Route element={<SignUp />} path='/signup' exact />
+          <Route
+            element={<RestorePwdRequest />}
+            path='/auth/restore_password'
+            exact
+          />
+          <Route
+            element={<RestorePwdForm />}
+            path='/auth/password_reset'
+            exact
+          />
 
-        {/* Account pages */}
-        <Route element={<Account />} path='/account' exact />
-        <Route element={<AccountSettings />} path='/account/settings/*' />
+          {/* Account pages */}
+          <Route element={<Account />} path='/account' exact />
+          <Route element={<AccountSettings />} path='/account/settings/*' />
 
-        {/* Actions Pages */}
-        <Route path='/actions/ongoing' element={<OngoingActions />} />
-        <Route path='/actions/new' element={<NewActions />} />
-        <Route path='/actions/automated' element={<AutomatedActions />} />
+          {/* Actions Pages */}
+          <Route path='/actions/ongoing' element={<OngoingActions />} />
+          <Route path='/actions/new' element={<NewActions />} />
+          <Route path='/actions/automated' element={<AutomatedActions />} />
 
-        {/* Learn Pages */}
-        <Route element={<Learn />} path='/learn' exact />
-        <Route element={<Course />} path='/learn/courses/:course_id' exact />
-        <Route
-          element={<LearnTopic />}
-          path='/learn/courses/:course_id/:topic_number/*'
-        />
+          {/* Learn Pages */}
+          <Route element={<Learn />} path='/learn' exact />
+          <Route element={<Course />} path='/learn/courses/:course_id' exact />
+          <Route
+            element={<LearnTopic />}
+            path='/learn/courses/:course_id/:topic_number/*'
+          />
 
-        {/* People Pages */}
-        <Route element={<People />} path='/people/' />
-        <Route path='/people/:username' exact element={<PersonPage />} />
-      </Routes>
-      <FooterMenu />
-      <Footer />
-    </Router>
+          {/* People Pages */}
+          <Route element={<People />} path='/people/' />
+          <Route path='/people/:username' exact element={<PersonPage />} />
+        </Routes>
+        <FooterMenu />
+        <Footer />
+      </Router>
+    </>
   );
 };
 

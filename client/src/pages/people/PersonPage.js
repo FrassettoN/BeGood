@@ -7,6 +7,7 @@ import { getPerson } from '../../redux/actions/peopleActions';
 import Chart from '../../components/Chart';
 import { useParams } from 'react-router-dom';
 import FollowButtons from '../../components/people/FollowButtons';
+import Title from '../../components/Title';
 
 const PersonPage = () => {
   const { username } = useParams();
@@ -27,9 +28,7 @@ const PersonPage = () => {
 
   return (
     <>
-      {/* <Helmet>
-        <title>{person?.info?.username || 'Account'} - BeGood</title>
-      </Helmet> */}
+      <Title title={`${person?.info?.username || 'Account'} - BeGood`} />
       <main className='personPage'>
         <Focus />
         <div className='content'>

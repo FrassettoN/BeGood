@@ -13,6 +13,7 @@ import earthWithHands from '../images/vendor/Environment-bro.svg';
 import saveTheEarth from '../images/vendor/SaveEarth.svg';
 import motherEarth from '../images/vendor/motherEarth.svg';
 import { getActionDetails } from '../redux/actions/actionActions';
+import Title from '../components/Title';
 
 const StartPage = () => {
   const dispatch = useDispatch();
@@ -31,9 +32,7 @@ const StartPage = () => {
 
   return (
     <>
-      {/* <Helmet>
-        <title>BeGood</title>
-      </Helmet> */}
+      <Title title='BeGood' />
       <main className='landing'>
         <div className='landing__intro'>
           <link rel='preload' as='image' href={sdgsWheel} />
@@ -89,11 +88,11 @@ const StartPage = () => {
               <div className='landing__card__text'>
                 <h3>Complete the Task</h3>
                 <p>
-                  Tick every day the actions that you have accomplished and{' '}
-                  <span>record all of your efforts</span>. In exchange, you will
-                  receive graphs and data to appreciate how your work is{' '}
-                  <span>impacting on the planet</span>, and you will be more and
-                  more <span>inspired</span> to get better.
+                  Tick off the actions you have accomplished each day and{' '}
+                  <span>record all of your efforts</span>. In return, you will
+                  receive graphs and data to see how your work is{' '}
+                  <span>impacting the planet</span>, inspiring you to{' '}
+                  <span>improve even more</span>.
                 </p>
               </div>
             </div>
@@ -106,9 +105,9 @@ const StartPage = () => {
               <div className='landing__card__text'>
                 <h3>Change the World</h3>
                 <p>
-                  Every action you complete will be a <span>little brick</span>{' '}
-                  to rebuild our Home. Play your part and get ready to improve
-                  the Earth by <span>improving your life</span>.
+                  Every action you complete is a <span>building block</span> to
+                  restore our planet. Play your part and get ready to improve
+                  the Earth by <span>enhancing your life</span>.
                 </p>
               </div>
             </div>
@@ -122,17 +121,17 @@ const StartPage = () => {
           <div>
             <img src={saveTheEarth} alt='Earth' />
             <p>
-              No matter if you’re an adult, a student, or a child: your own
-              <span> actions</span> can always improve both society and
-              environment – but you might be aware of it. <br />
-              However, no matter how much we would like to change our lives,
-              either we don’t know where to start, or it is a challenge to be{' '}
+              Whether you’re an adult, a student, or a child, your{' '}
+              <span>actions</span> can always improve both society and the
+              environment – but you probably already know this. <br />
+              However, no matter how much we want to change our lives, we often
+              don’t know where to start, or it can be a challenge to stay{' '}
               <span>consistent</span>. <br />
-              If this happens to you as well, then our website is the right
-              place for you: here you will learn every day new ways to take
-              responsible decisions and you will be able to{' '}
-              <span>record all your efforts along this journey</span>, getting
-              more and more motivated to do your best.
+              If this sounds familiar, then our webapp is the right place for
+              you. Here, you will learn new ways to make responsible decisions
+              every day and{' '}
+              <span>record all your efforts along this journey</span>, keeping
+              you motivated to do your best.
             </p>
           </div>
         </section>
@@ -142,13 +141,14 @@ const StartPage = () => {
             <img src={motherEarth} alt='Earth' />
             <p>
               We are a group of Italian <span>students</span> who firmly believe
-              that the only way to improve the world is to change small habits
-              of our daily behaviour. <br /> Starting from this{' '}
-              <span>idea</span>, we have decided to put ourselves on the
-              frontline – together with anyone who wants to <span>join us</span>{' '}
-              – to act every day towards a brighter future. <br /> This project
-              is the result of a collective contribution of the opinions and
-              knowledge of each one of us: we hope you will appreciate the
+              that the only way to improve the world is by changing small habits
+              in our daily behavior. <br />
+              Inspired by this <span>idea</span>, we have decided to put
+              ourselves on the frontline – together with anyone who wants to{' '}
+              <span>join us</span> – to act every day towards a brighter future.{' '}
+              <br />
+              This project is the result of the collective contributions of each
+              of our opinions and knowledge: we hope you will appreciate the
               result!
             </p>
           </div>

@@ -6,6 +6,7 @@ import { Route } from 'react-router-dom';
 import Lesson from '../../components/Lesson';
 import Protected from '../../components/Protected';
 import { getCourseDetails } from '../../redux/actions/learnActions';
+import Title from '../../components/Title';
 
 const Topic = () => {
   const { course_id, topic_number } = useParams();
@@ -30,9 +31,7 @@ const Topic = () => {
 
   return (
     <>
-      {/* <Helmet>
-        <title>{`${topic?.title || 'Topic'} - BeGood`}</title>
-      </Helmet> */}
+      <Title title={`${topic?.title || 'Topic'} - BeGood`} />
       <main className={`topicPage sdg--${info?.SDG}`}>
         <Protected />
         {error && <div className='appError'>{error}</div>}

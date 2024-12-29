@@ -82,7 +82,7 @@ CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
     "https://www.begood.tips",
     "https://begood.tips",
-    "https://begood-n735g.ondigitalocean.app/",
+    "https://begood-n735g.ondigitalocean.app",
 ]
 
 CSRF_HEADER_NAME = "CSRF_COOKIE"
@@ -92,7 +92,7 @@ CSRF_TRUSTED_ORIGINS = [
     "http://localhost:3000",
     "https://begood.tips",
     "https://www.begood.tips",
-    "https://begood-n735g.ondigitalocean.app/",
+    "https://begood-n735g.ondigitalocean.app",
 ]
 
 

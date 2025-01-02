@@ -9,16 +9,17 @@ def give_user_exp(user_action):
     user = user_action.user
     difficulty = user_action.action.level
     duration = user_action.action.duration
-    exp = (
-        10
-        if difficulty == "easy"
-        else 25 if difficulty == "medium" else 50 if difficulty == "hard" else 0
-    )
+    difficulty_to_exp = {
+        "easy": 10,
+        "medium": 25,
+        "hard": 50,
+    }
 
-    exp *= from_duration_to_days(duration)
+    exp = difficulty_to_exp.get(difficulty, 0)
+    exp *= durations_to_days(duration)
 
     # Update experience
-    user.exp += round(exp * user_action.completed_times / math.pi)
+    user.exp += exp
 
     # Update Level
     while user.exp / (user.level * LEVEL_EXP) >= 1:
@@ -28,12 +29,14 @@ def give_user_exp(user_action):
     user.save()
 
 
-def from_duration_to_days(duration):
-    return (
-        1
-        if duration == "day"
-        else 7 if duration == "week" else 30 if duration == "month" else 365
-    )
+def durations_to_days(duration):
+    duration_mapping = {
+        "day": 1,
+        "week": 7,
+        "month": 30,
+        "year": 365,
+    }
+    return duration_mapping.get(duration, 0)
 
 
 def calculate_time_passed(date_1, date_2):
@@ -57,7 +60,7 @@ def refresh_actions(user):
 
     for user_action in user_actions:
         action = user_action.action
-        action_days = from_duration_to_days(action.duration)
+        action_days = durations_to_days(action.duration)
         time_passed = calculate_time_passed(user_action.last_activation, date.today())
         if time_passed[action.duration] >= 1:
             user_action.is_active = True

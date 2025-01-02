@@ -89,32 +89,36 @@
     gap: 1.3em;
     transform: rotate(45deg);
   }
-  
+
   &__button {
     cursor: pointer;
     border-radius: 10px;
     text-align: center;
     font-size: clamp(1rem, 0.8vw, 1.5rem);
 
-    &.icon{
+    &.icon {
       padding: 0em;
       margin: 0em;
       border: none;
     }
-    
-    .icon{
+
+    .icon {
       text-align: center;
       display: block;
       transform: rotate(-45deg);
       font-size: 2.9em;
       font-weight: bold;
-      &.automate{
+      &.automate {
         font-size: 2.7em;
       }
     }
 
-    &:hover{
+    &:hover {
       opacity: 0.8;
+    }
+
+    &.save {
+      font-size: 1.2em;
     }
   }
 
@@ -125,7 +129,7 @@
     text-align: center;
   }
 
-  @include responde-to(medium){
+  @include responde-to(medium) {
     width: 20em;
   }
 }
@@ -147,7 +151,7 @@
 
   -webkit-transform-style: preserve-3d;
   transform-style: preserve-3d;
-  
+
   &.flip {
     --rotate-y: 180deg;
   }

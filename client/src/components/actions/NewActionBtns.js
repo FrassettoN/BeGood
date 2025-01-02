@@ -14,7 +14,7 @@ const NewActionButtons = ({ id, setFlip }) => {
     <button
       onClick={onClick}
       onFocus={() => setFlip(true)}
-      className='action__button btn green'>
+      className='action__button btn green save'>
       Save
     </button>
   );

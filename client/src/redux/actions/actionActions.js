@@ -32,6 +32,9 @@ import {
   SHARE_ACTION_REQUEST,
   SHARE_ACTION_SUCCESS,
   SHARE_ACTION_FAIL,
+  SAVED_ACTIONS_FAIL,
+  SAVED_ACTIONS_SUCCESS,
+  SAVED_ACTIONS_REQUEST,
 } from '../../constants/actionsConstants';
 import backend from '../../api/backend';
 import { createConfig, formatError } from './utils';
@@ -49,6 +52,20 @@ export const getActionDetails = (id) => async (dispatch) => {
   }
 };
 
+export const getSavedActions = () => async (dispatch, getState) => {
+  try {
+    dispatch({ type: SAVED_ACTIONS_REQUEST });
+    let accessToken = getState().userLogin?.user?.tokens?.access;
+    const config = createConfig(accessToken);
+    const { data } = await backend.get('/actions/ongoing/', config);
+    dispatch({ type: SAVED_ACTIONS_SUCCESS, payload: data });
+  } catch (error) {
+    dispatch({
+      type: SAVED_ACTIONS_FAIL,
+      payload: formatError(error),
+    });
+  }
+};
 export const getOngoingActions = () => async (dispatch, getState) => {
   try {
     dispatch({ type: ONGOING_ACTIONS_REQUEST });

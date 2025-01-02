@@ -5,9 +5,20 @@ import profileImgPath from '../../images/sdg_goals/sdg_wheel/white_small.png';
 import { useSelector } from 'react-redux';
 
 const FeedPost = ({ post }) => {
-  const { actionId, message, error } = useSelector((state) => state.newActions);
+  const {
+    actionId,
+    message: newActionMessage,
+    error: newActionError,
+  } = useSelector((state) => state.newActions);
+  const {
+    actions: savedActions,
+    message: savedMessage,
+    error: savedError,
+  } = useSelector((state) => state.savedActions);
 
-  const renderMessage = (message) => {
+  const isSaved = savedActions.some((action) => action.id === post.action.id);
+
+  const renderNewActionMessage = (message) => {
     if (post.action.id === actionId) {
       return <p className='appMessage'>{message}</p>;
     }
@@ -16,17 +27,18 @@ const FeedPost = ({ post }) => {
   return (
     <>
       <section className='feed__post'>
-        {error && <h2 className='appError'>{error}</h2>}
+        {newActionError && <h2 className='appError'>{newActionError}</h2>}
+        {savedError && <h2 className='appError'>{savedError}</h2>}
 
-        {message && renderMessage(message)}
+        {newActionMessage && renderNewActionMessage(newActionMessage)}
         <h4>
           <Link to={`/people/${post.author}`}>
             <img className='profileImg' src={profileImgPath} alt='profile' />
             {post.author}
           </Link>
-          suggests:
+          recomends:
         </h4>
-        <Action type='new' action={post.action} />
+        <Action type={isSaved ? 'none' : 'new'} action={post.action} />
       </section>
       <hr />
     </>

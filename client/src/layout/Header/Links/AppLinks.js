@@ -13,9 +13,9 @@ const AppLinks = () => {
       <NavLink to='/learn' end active='currentPage'>
         Learn
       </NavLink>
-      {/* <NavLink to='/people' end active='currentPage'>
+      <NavLink to='/people' end active='currentPage'>
         People
-      </NavLink> */}
+      </NavLink>
     </nav>
   );
 };

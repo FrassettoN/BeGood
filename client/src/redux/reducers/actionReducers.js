@@ -47,6 +47,9 @@ import {
   SHARE_ACTION_REQUEST,
   SHARE_ACTION_FAIL,
   SHARE_ACTION_SUCCESS,
+  SAVED_ACTIONS_REQUEST,
+  SAVED_ACTIONS_SUCCESS,
+  SAVED_ACTIONS_FAIL,
 } from '../../constants/actionsConstants';
 
 export const actionDetailsReducer = (state = { action: {} }, action) => {
@@ -58,6 +61,35 @@ export const actionDetailsReducer = (state = { action: {} }, action) => {
       return { loading: false, action: action.payload };
 
     case ACTION_DETAILS_FAIL:
+      return { loading: false, error: action.payload };
+
+    default:
+      return state;
+  }
+};
+
+export const savedActionsReducer = (state = { actions: [] }, action) => {
+  switch (action.type) {
+    case SAVED_ACTIONS_REQUEST:
+    case DELETE_ACTION_REQUEST:
+      return { loading: true, ...state };
+
+    case SAVED_ACTIONS_SUCCESS:
+      return { loading: false, actions: action.payload };
+
+    case DELETE_ACTION_SUCCESS:
+      return {
+        loading: false,
+        actions: [
+          ...state.actions.filter(
+            (savedAction) => savedAction.id !== action.payload.id
+          ),
+        ],
+        message: 'Action updated!',
+      };
+
+    case SAVED_ACTIONS_FAIL:
+    case DELETE_ACTION_FAIL:
       return { loading: false, error: action.payload };
 
     default:

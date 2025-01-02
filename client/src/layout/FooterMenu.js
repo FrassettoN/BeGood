@@ -6,7 +6,14 @@ import { VscAccount } from 'react-icons/vsc';
 
 const FooterMenu = () => {
   const { pathname } = useLocation();
-  let show = () => (pathname === '/' ? 'hidden' : '');
+  const excluded_pathnames = [
+    '/',
+    '/login',
+    '/signup',
+    '/auth/restore_password',
+    '/auth/password_reset',
+  ];
+  let show = () => (excluded_pathnames.includes(pathname) ? 'hidden' : '');
 
   return (
     <footer className={`footerMenu ${show()}`}>
@@ -18,9 +25,9 @@ const FooterMenu = () => {
         <NavLink to='/learn' end active='active'>
           <TbSchool className='icon' />
         </NavLink>
-        {/* <NavLink to='/people' end active='active'>
+        <NavLink to='/people' end active='active'>
           <TbClover className='icon' />
-        </NavLink> */}
+        </NavLink>
         <NavLink to='/account' end active='active'>
           <VscAccount className='icon' />
         </NavLink>

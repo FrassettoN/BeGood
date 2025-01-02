@@ -102,6 +102,20 @@ def get_action(request, id):
 
 @api_view(["GET"])
 @permission_classes([IsAuthenticated])
+def get_saved_actions(request):
+    user_actions = UserAction.objects.filter(user=request.user, is_saved=True).all()
+    # Take actions from relation
+    actions = []
+    for user_action in user_actions:
+        action = user_action.action
+        actions.append(action)
+
+    serialized = ActionSerializer(actions, many=True)
+    return Response(serialized.data)
+
+
+@api_view(["GET"])
+@permission_classes([IsAuthenticated])
 def get_ongoing_actions(request):
     user_actions = UserAction.objects.filter(
         user=request.user, is_active=True, is_saved=True

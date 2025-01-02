@@ -693,6 +693,9 @@ body {
 .action__button:hover {
   opacity: 0.8;
 }
+.action__button.save {
+  font-size: 1.2em;
+}
 .action__delete {
   color: #f00;
   background: none;
@@ -1021,16 +1024,17 @@ body {
 
 .cardsContainer {
   overflow-x: scroll;
+  margin: 1em auto;
 }
 .cardsContainer::-webkit-scrollbar {
   height: 8px;
 }
 .cardsContainer::-webkit-scrollbar-thumb {
-  background-color: none;
-  border-radius: 10px;
+  background: var(--sdg-color);
 }
 .cardsContainer::-webkit-scrollbar-track {
-  background: var(--sdg-color);
+  background-color: none;
+  border-radius: 10px;
 }
 @media only screen and (min-width: 300px) and (max-width: 999px) {
   .cardsContainer {
@@ -1188,6 +1192,19 @@ body {
 }
 .findNew a {
   font-size: clamp(1rem, 1.3vw, 1.2rem);
+}
+
+.inviteFriends button {
+  background: none;
+  border: none;
+  padding: 0 1em;
+  line-height: 1.7em;
+  text-align: center;
+  font-size: 1.5em;
+}
+.inviteFriends button span {
+  color: #a6a8fe;
+  font-weight: bold;
 }
 
 .header {
@@ -1548,7 +1565,7 @@ form .forgotPassword {
   font-size: 0.85rem;
 }
 .footer a {
-  text-decoration: underline #00BD6E;
+  text-decoration: underline #00bd6e;
 }
 @media only screen and (min-width: 1000px) {
   .footer {
@@ -2223,7 +2240,7 @@ form .forgotPassword {
 
 .personPage {
   width: 90%;
-  margin: 4em auto auto auto;
+  margin: 4em auto;
   text-align: center;
 }
 .personPage .general {

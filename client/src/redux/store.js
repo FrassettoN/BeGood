@@ -6,6 +6,7 @@ import {
   automatedActionsReducer,
   newActionsReducer,
   ongoingActionsReducer,
+  savedActionsReducer,
   shareActionReducer,
 } from './reducers/actionReducers';
 import {
@@ -37,6 +38,7 @@ const reducer = combineReducers({
   // Actions
   actionDetails: actionDetailsReducer,
   newActions: newActionsReducer,
+  savedActions: savedActionsReducer,
   ongoingActions: ongoingActionsReducer,
   automatedActions: automatedActionsReducer,
   shareActions: shareActionReducer,

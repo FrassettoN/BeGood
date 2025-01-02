@@ -16,6 +16,7 @@ from . import views
 urlpatterns = [
     path("fill/", views.fill_database, name="fill"),
     path("actions/<int:id>/", views.get_action, name="action"),
+    path("actions/saved/", views.get_saved_actions, name="user_actions"),
     path("actions/ongoing/", views.get_ongoing_actions, name="ongoing_actions"),
     path("actions/new/", views.get_new_actions, name="new_actions"),
     path("actions/automated/", views.get_automated_actions, name="automated_actions"),

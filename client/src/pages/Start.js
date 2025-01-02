@@ -14,6 +14,7 @@ import saveTheEarth from '../images/vendor/SaveEarth.svg';
 import motherEarth from '../images/vendor/motherEarth.svg';
 import { getActionDetails } from '../redux/actions/actionActions';
 import Title from '../components/Title';
+import InviteFriends from '../components/people/InviteFriends';
 
 const StartPage = () => {
   const dispatch = useDispatch();
@@ -152,6 +153,9 @@ const StartPage = () => {
               result!
             </p>
           </div>
+        </section>
+        <section className='share'>
+          <InviteFriends />
         </section>
       </main>
     </>

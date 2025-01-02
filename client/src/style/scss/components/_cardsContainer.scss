@@ -2,18 +2,19 @@
 
 .cardsContainer {
   overflow-x: scroll;
+  margin: 1em auto;
 
   &::-webkit-scrollbar {
     height: 8px;
   }
 
   &::-webkit-scrollbar-thumb {
-    background-color: none;
-    border-radius: 10px;
+    background: (var(--sdg-color));
   }
 
   &::-webkit-scrollbar-track {
-    background: (var(--sdg-color));
+    background-color: none;
+    border-radius: 10px;
   }
 
   @include from-to(small, medium) {

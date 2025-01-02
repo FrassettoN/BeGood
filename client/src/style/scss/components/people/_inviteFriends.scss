@@ -1,0 +1,16 @@
+@use '../../abstracts' as *;
+
+.inviteFriends {
+  button {
+    background: none;
+    border: none;
+    padding: 0 1em;
+    line-height: 1.7em;
+    text-align: center;
+    font-size: 1.5em;
+    span {
+      color: #{$violet};
+      font-weight: bold;
+    }
+  }
+}

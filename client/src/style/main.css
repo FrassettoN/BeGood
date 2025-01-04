@@ -657,8 +657,6 @@ body {
   z-index: 1;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
-  -webkit-transform-style: preserve-3d;
-  transform-style: preserve-3d;
 }
 .action__back__title {
   font-size: 1.6em;

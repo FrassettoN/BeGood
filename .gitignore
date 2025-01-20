@@ -26,7 +26,6 @@
 # Python & Django
 */__pycache__
 __pycache__
-migrations
 
 # Data
 db.sqlite3

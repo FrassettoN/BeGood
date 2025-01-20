@@ -16,6 +16,9 @@ const AppLinks = () => {
       <NavLink to='/people' end active='currentPage'>
         People
       </NavLink>
+      <NavLink to='/actions/create' end active='currentPage'>
+        Create
+      </NavLink>
     </nav>
   );
 };

@@ -13,6 +13,10 @@ class SDG(models.Model):
         return f"{self.number} - {self.title}"
 
 
+def get_default_user():
+    return User.objects.filter(email="niccolo.frassetto@gmail.com").first().id
+
+
 class Action(models.Model):
 
     DURATION_CHOICES = [
@@ -25,15 +29,22 @@ class Action(models.Model):
 
     LEVEL_CHOICES = [("easy", "easy"), ("medium", "medium"), ("hard", "hard")]
 
+    author = models.ForeignKey(
+        to=User,
+        on_delete=models.CASCADE,
+        default=get_default_user,
+    )
     title = models.CharField(max_length=25, null=False, blank=False, unique=True)
     caption = models.CharField(max_length=150, null=False, blank=False)
+    description = models.TextField(null=False, blank=False, default="")
+    SDGs = models.ManyToManyField(SDG)
     duration = models.CharField(
         max_length=5, null=False, blank=False, choices=DURATION_CHOICES
     )
-    SDGs = models.ManyToManyField(SDG)
     level = models.CharField(
         max_length=6, null=False, blank=False, choices=LEVEL_CHOICES
     )
+    public = models.BooleanField(default=False)
 
     def __str__(self):
         return self.title

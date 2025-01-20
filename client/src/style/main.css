@@ -442,7 +442,7 @@ a {
 
 .appPageTitle {
   color: #085944;
-  margin: 1.5em auto;
+  margin: 1em auto;
   text-align: center;
 }
 
@@ -527,6 +527,14 @@ body {
 }
 .btn.green.reversed {
   --first-color: #085944;
+  --second-color: #fff;
+}
+.btn.violet {
+  --first-color: #fff;
+  --second-color: #a6a8fe;
+}
+.btn.violet.reversed {
+  --first-color: #a6a8fe;
   --second-color: #fff;
 }
 .btn.second-green {
@@ -639,8 +647,7 @@ body {
 }
 .action__sdgs {
   padding: 0;
-  margin: 0;
-  margin: auto 0;
+  margin: auto 0 0 0;
 }
 .action__sdg {
   display: inline-block;
@@ -708,43 +715,6 @@ body {
   .action {
     width: 20em;
   }
-}
-
-.test {
-  position: relative;
-  height: 21em;
-  width: 100%;
-  background-color: #eee;
-  -webkit-transition: 0.8s;
-  transition: 0.8s;
-  -webkit-perspective: 1000px;
-  perspective: 1000px;
-  -webkit-transform: rotateY(var(--rotate-y, 0));
-  transform: rotateY(var(--rotate-y, 0));
-  -webkit-transform-style: preserve-3d;
-  transform-style: preserve-3d;
-}
-.test.flip {
-  --rotate-y: 180deg;
-}
-.test__front, .test__back {
-  position: absolute;
-  -webkit-transform: translate3d(0, 0, 0);
-  transform: translate3d(0, 0, 0);
-  visibility: visible;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-  width: 100%;
-  height: 100%;
-}
-.test__front {
-  z-index: 2;
-  -webkit-transform: rotateY(0deg);
-  transform: rotateY(0deg);
-}
-.test__back {
-  -webkit-transform: rotateY(180deg);
-  transform: rotateY(180deg);
 }
 
 .navActions {
@@ -2357,6 +2327,76 @@ form .forgotPassword {
   .personPage .general .userProgress h4 {
     order: 1;
   }
+}
+
+.actionsPage section.createAction {
+  width: 100%;
+  display: flex;
+  margin: 0 auto 2em auto;
+  justify-content: right;
+  font-size: clamp(1.3em, 2.5vw, 1.5em);
+  font-weight: bold;
+}
+.actionsPage section.createAction a {
+  border-radius: 10px 0 0 10px;
+}
+
+.createAction form {
+  margin: 1em auto;
+}
+.createAction form textarea {
+  height: 10em;
+}
+.createAction form .sdgs .inputs {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 4em);
+  grid-auto-rows: 4em;
+  justify-content: space-around;
+  align-content: center;
+  gap: 0.5em;
+}
+.createAction form .sdgs .inputs label {
+  justify-self: center;
+}
+.createAction form .sdgs .inputs label input[type=checkbox] {
+  display: none;
+}
+.createAction form .sdgs .inputs label input[type=checkbox]:not(:checked) ~ img {
+  opacity: 0.2;
+}
+.createAction form .sdgs .inputs label img {
+  width: 100%;
+}
+.createAction form .options {
+  display: flex;
+  justify-content: space-around;
+}
+.createAction form .options .option {
+  padding: 0.5em 1em;
+  width: 33%;
+  max-width: 10em;
+  text-align: center;
+  display: inline-block;
+  border-radius: 5px;
+  transition: background 200ms ease-in-out, color 200ms ease-in-out;
+}
+.createAction form .options .option:not(.selected) {
+  background-color: white;
+  color: #085944;
+  border: 2px solid #085944;
+}
+.createAction form .options .option.selected {
+  background-color: #085944;
+  color: white;
+  border: 2px solid #085944;
+}
+.createAction form .options input[type=radio] {
+  display: none;
+}
+.createAction form input[type=submit] {
+  display: block;
+  font-size: 1.3em;
+  margin: 0 0 0 auto;
 }
 
 /*# sourceMappingURL=main.css.map */

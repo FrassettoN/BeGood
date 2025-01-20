@@ -4,6 +4,7 @@ import { thunk } from 'redux-thunk';
 import {
   actionDetailsReducer,
   automatedActionsReducer,
+  createActionReducer,
   newActionsReducer,
   ongoingActionsReducer,
   savedActionsReducer,
@@ -41,7 +42,8 @@ const reducer = combineReducers({
   savedActions: savedActionsReducer,
   ongoingActions: ongoingActionsReducer,
   automatedActions: automatedActionsReducer,
-  shareActions: shareActionReducer,
+  shareAction: shareActionReducer,
+  createAction: createActionReducer,
 
   // User
   userLogin: userLoginReducer,

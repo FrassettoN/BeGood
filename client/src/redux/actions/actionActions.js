@@ -35,6 +35,9 @@ import {
   SAVED_ACTIONS_FAIL,
   SAVED_ACTIONS_SUCCESS,
   SAVED_ACTIONS_REQUEST,
+  CREATE_ACTION_REQUEST,
+  CREATE_ACTION_SUCCESS,
+  CREATE_ACTION_FAIL,
 } from '../../constants/actionsConstants';
 import backend from '../../api/backend';
 import { createConfig, formatError } from './utils';
@@ -66,6 +69,7 @@ export const getSavedActions = () => async (dispatch, getState) => {
     });
   }
 };
+
 export const getOngoingActions = () => async (dispatch, getState) => {
   try {
     dispatch({ type: ONGOING_ACTIONS_REQUEST });
@@ -204,5 +208,25 @@ export const notAutomateAction = (id) => async (dispatch, getState) => {
     dispatch({ type: NOT_AUTOMATE_ACTION_SUCCESS, payload: data });
   } catch (error) {
     dispatch({ type: NOT_AUTOMATE_ACTION_FAIL, payload: formatError(error) });
+  }
+};
+
+export const createAction = (details) => async (dispatch, getState) => {
+  try {
+    dispatch({ type: CREATE_ACTION_REQUEST });
+
+    let accessToken = getState().userLogin?.user?.tokens?.access;
+    const config = createConfig(accessToken);
+    const { data } = await backend.post(
+      `/actions/create/`,
+      { details },
+      config
+    );
+    dispatch({ type: CREATE_ACTION_SUCCESS, payload: data });
+  } catch (error) {
+    dispatch({
+      type: CREATE_ACTION_FAIL,
+      payload: formatError(error),
+    });
   }
 };

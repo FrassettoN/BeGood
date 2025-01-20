@@ -50,6 +50,9 @@ import {
   SAVED_ACTIONS_REQUEST,
   SAVED_ACTIONS_SUCCESS,
   SAVED_ACTIONS_FAIL,
+  CREATE_ACTION_REQUEST,
+  CREATE_ACTION_SUCCESS,
+  CREATE_ACTION_FAIL,
 } from '../../constants/actionsConstants';
 
 export const actionDetailsReducer = (state = { action: {} }, action) => {
@@ -210,6 +213,23 @@ export const shareActionReducer = (state = {}, action) => {
 
     case SHARE_ACTION_FAIL:
       return { loading: false, error: action.payload };
+
+    default:
+      return state;
+  }
+};
+
+export const createActionReducer = (state = { action: {} }, action) => {
+  switch (action.type) {
+    case CREATE_ACTION_REQUEST:
+      return { loading: true };
+
+    case CREATE_ACTION_SUCCESS:
+      return { loading: false, action: action.payload };
+
+    case CREATE_ACTION_FAIL:
+      console.log(action.payload);
+      return { loading: false, error: action.payload.details };
 
     default:
       return state;

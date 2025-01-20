@@ -1,5 +1,6 @@
-from .models import UserAction
+from .models import UserAction, Action, SDG
 from datetime import date, timedelta
+from django.core.exceptions import ValidationError
 import math
 
 LEVEL_EXP = 100
@@ -94,3 +95,70 @@ def actions_progress(user):
 
     sdgs_progress[0] = total_actions
     return sdgs_progress
+
+
+def validate_action(data):
+    errors = []
+
+    title = data.get("title")
+    if not title:
+        errors.append("Title is required")
+    elif len(title) > 25:
+        errors.append("Max length for title is 25 characters")
+    elif Action.objects.filter(title=title).exists():
+        errors.append("An Action with this title already exists!")
+
+    caption = data.get("caption")
+    if not caption:
+        errors.append("Caption is required")
+    elif len(caption) > 150:
+        errors.append("Max length for caption is 150 characters")
+
+    description = data.get("description")
+    if not description:
+        errors.append("Description is required")
+
+    SDGs_numbers = data.get("SDGs")
+    SDGs = []
+    if not isinstance(SDGs_numbers, list):
+        errors.append("SDGs must be a list of numbers.")
+    else:
+        for SDG_number in SDGs_numbers:
+            if not (
+                isinstance(SDG_number, int)
+                or (isinstance(SDG_number, str) and SDG_number.isdigit())
+            ):
+                errors.append(f"{SDG_number} is not a valid SDG ID.")
+            elif not SDG.objects.filter(number=SDG_number).exists():
+                errors.append(f"SDG with ID {SDG_number} does not exist.")
+            else:
+                SDGs.append(SDG.objects.get(number=SDG_number))
+
+    duration = data.get("duration")
+    if not duration:
+        errors.append("Duration is required")
+    else:
+        valid_duration_choices = [choice[0] for choice in Action.DURATION_CHOICES]
+        if duration not in valid_duration_choices:
+            errors.append(f"{duration} is not a valid duration choice.")
+
+    level = data.get("level")
+    if not level:
+        errors.append("Level is required")
+    else:
+        valid_level_choices = [choice[0] for choice in Action.LEVEL_CHOICES]
+        if level not in valid_level_choices:
+            errors.append(f"{level} is not a valid level choice.")
+
+    if errors:
+        raise ValidationError(errors)
+
+    action = {
+        "title": title,
+        "caption": caption,
+        "description": description,
+        "SDGs": SDGs,
+        "duration": duration,
+        "level": level,
+    }
+    return action

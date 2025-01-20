@@ -5,6 +5,7 @@ import { getNewActions } from '../../redux/actions/actionActions';
 import NavActions from '../../components/actions/NavActions';
 import Protected from '../../components/Protected';
 import Title from '../../components/Title';
+import { Link } from 'react-router-dom';
 
 const NewActions = () => {
   const dispatch = useDispatch();
@@ -40,6 +41,12 @@ const NewActions = () => {
         <h1 className='appPageTitle'>New Actions</h1>
 
         <NavActions />
+
+        <section className='createAction'>
+          <Link to='/actions/create' className='btn violet'>
+            Create
+          </Link>
+        </section>
 
         <div className='actions'>
           {actions && renderActions(actions, 'day')}

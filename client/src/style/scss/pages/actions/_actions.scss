@@ -1,0 +1,15 @@
+.actionsPage {
+  section {
+    &.createAction {
+      width: 100%;
+      display: flex;
+      margin: 0 auto 2em auto;
+      justify-content: right;
+      font-size: clamp(1.3em, 2.5vw, 1.5em);
+      font-weight: bold;
+      a {
+        border-radius: 10px 0 0 10px;
+      }
+    }
+  }
+}

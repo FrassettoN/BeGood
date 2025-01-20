@@ -5,9 +5,11 @@ from rest_framework.permissions import IsAuthenticated, IsAdminUser, AllowAny
 from .serializers import ActionSerializer
 from .models import Action, UserAction, SDG
 from learn.models import Course, Topic, Lesson
-from .utils import give_user_exp
+from .utils import give_user_exp, validate_action
 from datetime import date, timedelta, datetime
 from django.db import IntegrityError
+from django.core.exceptions import ValidationError
+
 
 import os
 import json
@@ -226,3 +228,29 @@ def interact_with_action(request, id, interaction):
 
     serialized = ActionSerializer(action, many=False)
     return Response(serialized.data)
+
+
+@api_view(["POST"])
+@permission_classes([IsAuthenticated])
+def create_action(request):
+    data = request.data["details"]
+    user = request.user
+    print(data)
+
+    try:
+        action = validate_action(data)
+        new_action = Action.objects.create(
+            author=user,
+            title=action["title"],
+            caption=action["caption"],
+            description=action["description"],
+            level=action["level"],
+            duration=action["duration"],
+        )
+        new_action.SDGs.set(action["SDGs"])
+        new_action.save()
+        serialized = ActionSerializer(action, many=False)
+        return Response(serialized.data)
+    except ValidationError as e:
+        print(e)
+        return Response({"details": e}, status=status.HTTP_400_BAD_REQUEST)

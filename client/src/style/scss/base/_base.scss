@@ -25,10 +25,10 @@ body {
   flex-direction: column;
 }
 
-main{
+main {
   width: 100%;
   margin: 0 auto;
-  @include from-to(small, medium){
+  @include from-to(small, medium) {
     margin: 0 auto 5em auto;
   }
 }
@@ -45,7 +45,7 @@ a {
 
 .appPageTitle {
   color: $green;
-  margin: 1.5em auto;
+  margin: 1em auto;
   text-align: center;
 }
 

@@ -6,3 +6,5 @@
 @use './topic' as *;
 @use './people' as *;
 @use './person' as *;
+@use './actions/actions' as *;
+@use './actions/createAction' as *;

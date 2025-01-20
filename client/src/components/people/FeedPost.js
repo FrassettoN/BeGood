@@ -36,7 +36,7 @@ const FeedPost = ({ post }) => {
             <img className='profileImg' src={profileImgPath} alt='profile' />
             {post.author}
           </Link>
-          recomends:
+          recommends:
         </h4>
         <Action type={isSaved ? 'none' : 'new'} action={post.action} />
       </section>

@@ -4,8 +4,17 @@
   &.green {
     --first-color: #{$background-color};
     --second-color: #{$green};
-    &.reversed{
+    &.reversed {
       --first-color: #{$green};
+      --second-color: #{$background-color};
+    }
+  }
+
+  &.violet {
+    --first-color: #{$background-color};
+    --second-color: #{$violet};
+    &.reversed {
+      --first-color: #{$violet};
       --second-color: #{$background-color};
     }
   }
@@ -14,25 +23,23 @@
     --first-color: #{$background-color};
     --second-color: #{$second-green};
 
-    &.reversed{
+    &.reversed {
       --first-color: #{$second-green};
       --second-color: #{$background-color};
-
     }
   }
   &.blue {
     --first-color: #{$background-color};
     --second-color: #{$blue};
-    &.reversed{
+    &.reversed {
       --first-color: #{$blue};
       --second-color: #{$background-color};
-
     }
   }
   &.red {
     --first-color: #{$background-color};
     --second-color: #{$red};
-    &.reversed{
+    &.reversed {
       --first-color: #{$red};
       --second-color: #{$background-color};
     }
@@ -67,7 +74,7 @@
   }
 
   &.no-hover:hover,
-  &.no-hover:focus{
+  &.no-hover:focus {
     background: var(--second-color);
     color: var(--first-color);
     border: 2px solid var(--secoond-color);

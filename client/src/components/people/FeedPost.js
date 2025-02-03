@@ -10,11 +10,9 @@ const FeedPost = ({ post }) => {
     message: newActionMessage,
     error: newActionError,
   } = useSelector((state) => state.newActions);
-  const {
-    actions: savedActions,
-    message: savedMessage,
-    error: savedError,
-  } = useSelector((state) => state.savedActions);
+  const { actions: savedActions, error: savedError } = useSelector(
+    (state) => state.savedActions
+  );
 
   const isSaved = savedActions.some((action) => action.id === post.action.id);
 

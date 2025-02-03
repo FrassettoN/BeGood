@@ -2,13 +2,15 @@ import React, { useState, useEffect, useRef } from 'react';
 import NewActionButtons from './NewActionBtns';
 import UserActionButtons from './UserActionBtns';
 import AutomatedActionButtons from './AutoActionBtns';
+import { Link } from 'react-router-dom';
+import { TbInfoOctagon } from 'react-icons/tb';
 
 const Action = ({ action, className, type }) => {
   const [flip, setFlip] = useState(false);
-  const [iconsPaths, setIconsPaths] = useState({});
-
   const front = useRef();
   const back = useRef();
+
+  const [iconsPaths, setIconsPaths] = useState({});
 
   const getIconPaths = async (action) => {
     action?.SDGs?.forEach(async (SDG) => {
@@ -51,9 +53,19 @@ const Action = ({ action, className, type }) => {
         <h3 className='action__title'>{action.title}</h3>
         <small className='action__level'>{action.level}</small>
         <p className='action__caption'>{action.caption}</p>
-        <div className='action__sdgs'>
-          {action.SDGs && renderSDGsIcons(action.SDGs)}
-        </div>
+        <section className='action__bottom'>
+          <div className='action__sdgs'>
+            {action.SDGs && renderSDGsIcons(action.SDGs)}
+          </div>
+          {action.description && (
+            <Link
+              className='action__info'
+              onClick={(e) => e.stopPropagation()}
+              to={`/actions/${action.id}`}>
+              <TbInfoOctagon />
+            </Link>
+          )}
+        </section>
       </div>
       <div className='action__back' ref={back}>
         <h3 className='action__back__title'>{action.title}</h3>

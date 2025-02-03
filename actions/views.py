@@ -8,6 +8,7 @@ from learn.models import Course, Topic, Lesson
 from .utils import give_user_exp, validate_action
 from datetime import date, timedelta, datetime
 from django.db import IntegrityError
+from django.db.models import Q
 from django.core.exceptions import ValidationError
 
 
@@ -151,11 +152,15 @@ def get_automated_actions(request):
 @api_view(["GET"])
 @permission_classes([IsAuthenticated])
 def get_new_actions(request):
-    user_actions = UserAction.objects.filter(user=request.user, is_saved=True).all()
-    actions = list(Action.objects.all())
+    user_actions = UserAction.objects.filter(
+        user=request.user, is_saved=True
+    ).values_list("action_id", flat=True)
+    followed = list(request.user.followed_rel.values_list("followed_id", flat=True))
+    followed.append(request.user.id)
 
-    for user_action in user_actions:
-        actions.remove(user_action.action)
+    actions = Action.objects.filter(Q(public=True) | Q(author_id__in=followed)).exclude(
+        id__in=user_actions
+    )
 
     serialized = ActionSerializer(actions, many=True)
     return Response(serialized.data)
@@ -235,7 +240,6 @@ def interact_with_action(request, id, interaction):
 def create_action(request):
     data = request.data["details"]
     user = request.user
-    print(data)
 
     try:
         action = validate_action(data)
@@ -252,5 +256,4 @@ def create_action(request):
         serialized = ActionSerializer(action, many=False)
         return Response(serialized.data)
     except ValidationError as e:
-        print(e)
         return Response({"details": e}, status=status.HTTP_400_BAD_REQUEST)

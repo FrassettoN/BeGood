@@ -9,10 +9,10 @@ class Follower(models.Model):
     STATUS = [("accepted", "accepted"), ("pending", "pending"), ("refused", "refused")]
 
     follower = models.ForeignKey(
-        to=User, on_delete=models.CASCADE, related_name="follower_rel"
+        to=User, on_delete=models.CASCADE, related_name="followed_rel"
     )
     followed = models.ForeignKey(
-        to=User, on_delete=models.CASCADE, related_name="followed_rel"
+        to=User, on_delete=models.CASCADE, related_name="follower_rel"
     )
 
     def __str__(self):

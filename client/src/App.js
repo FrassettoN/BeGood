@@ -22,6 +22,7 @@ import NewActions from './pages/actions/NewActions.js';
 import AutomatedActions from './pages/actions/AutomatedActions.js';
 import PersonPage from './pages/people/PersonPage.js';
 import CreateAction from './pages/actions/CreateAction.js';
+import ActionPage from './pages/actions/ActionPage.js';
 
 const App = () => {
   const dispatch = useDispatch();
@@ -54,6 +55,7 @@ const App = () => {
           <Route element={<AccountSettings />} path='/account/settings/*' />
 
           {/* Actions Pages */}
+          <Route path='/actions/:id' element={<ActionPage />} />
           <Route path='/actions/ongoing' element={<OngoingActions />} />
           <Route path='/actions/new' element={<NewActions />} />
           <Route path='/actions/automated' element={<AutomatedActions />} />

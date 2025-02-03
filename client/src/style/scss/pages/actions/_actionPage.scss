@@ -1,0 +1,70 @@
+@use '../../abstracts' as *;
+
+.actionPage {
+  padding: 0 1em;
+
+  .appPageTitle {
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+
+  .content {
+    @include from-to(small, medium) {
+      .description {
+        p {
+          font-size: 1.2em;
+          line-height: 1.4em;
+        }
+      }
+    }
+    @include responde-to(medium) {
+      display: flex;
+      aside {
+        order: 2;
+        width: 30%;
+        margin-left: auto;
+        margin-right: 1em;
+      }
+
+      .description {
+        order: 1;
+        margin: 0 1em;
+
+        p {
+          padding: 0 1em;
+          font-size: 1.2em;
+          line-height: 1.4em;
+          text-align: justify;
+        }
+      }
+    }
+  }
+
+  .author {
+    text-align: center;
+    margin-bottom: 2em;
+
+    p {
+      margin: 0;
+    }
+    a {
+      text-decoration: underline $green;
+    }
+  }
+
+  .duration {
+    text-align: center;
+    font-weight: bold;
+  }
+
+  .description {
+    margin: 3em 0.5em;
+    h2 {
+      margin: 0 auto;
+    }
+
+    a {
+      color: $green;
+    }
+  }
+}

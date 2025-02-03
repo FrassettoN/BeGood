@@ -10,8 +10,8 @@ class SDGAdmin(admin.ModelAdmin):
 
 @admin.register(Action)
 class ActionAdmin(admin.ModelAdmin):
-    list_display = ("title", "duration", "level")
-    list_filter = ("duration", "level", "SDGs")
+    list_display = ("title", "duration", "level", "public")
+    list_filter = ("duration", "level", "SDGs", "public")
 
 
 @admin.register(UserAction)

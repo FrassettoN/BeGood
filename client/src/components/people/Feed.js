@@ -12,11 +12,7 @@ const Feed = () => {
     loading,
     error: feedError,
   } = useSelector((state) => state.feed);
-  const {
-    actions: savedActions,
-    message: savedMessage,
-    error: savedError,
-  } = useSelector((state) => state.savedActions);
+  const { error: savedError } = useSelector((state) => state.savedActions);
 
   useEffect(() => {
     dispatch(getFeed());

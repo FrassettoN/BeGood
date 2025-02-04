@@ -4,12 +4,14 @@ from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import IsAuthenticated, IsAdminUser, AllowAny
 from .serializers import ActionSerializer
 from .models import Action, UserAction, SDG
+from myaccount.models import User
 from learn.models import Course, Topic, Lesson
 from .utils import give_user_exp, validate_action
 from datetime import date, timedelta, datetime
 from django.db import IntegrityError
 from django.db.models import Q
 from django.core.exceptions import ValidationError
+from django.shortcuts import get_object_or_404
 
 
 import os
@@ -257,3 +259,12 @@ def create_action(request):
         return Response(serialized.data)
     except ValidationError as e:
         return Response({"details": e}, status=status.HTTP_400_BAD_REQUEST)
+
+
+@api_view(["GET"])
+@permission_classes([IsAuthenticated])
+def get_actions_by_author(request, username):
+    author = get_object_or_404(User, username=username)
+    actions = Action.objects.filter(author=author).all()
+    serialized = ActionSerializer(actions, many=True)
+    return Response(serialized.data)

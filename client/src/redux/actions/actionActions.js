@@ -38,6 +38,9 @@ import {
   CREATE_ACTION_REQUEST,
   CREATE_ACTION_SUCCESS,
   CREATE_ACTION_FAIL,
+  AUTHOR_ACTIONS_REQUEST,
+  AUTHOR_ACTIONS_SUCCESS,
+  AUTHOR_ACTIONS_FAIL,
 } from '../../constants/actionsConstants';
 import backend from '../../api/backend';
 import { createConfig, formatError } from './utils';
@@ -226,6 +229,22 @@ export const createAction = (details) => async (dispatch, getState) => {
   } catch (error) {
     dispatch({
       type: CREATE_ACTION_FAIL,
+      payload: formatError(error),
+    });
+  }
+};
+
+export const getAuthorActions = (username) => async (dispatch, getState) => {
+  try {
+    dispatch({ type: AUTHOR_ACTIONS_REQUEST });
+
+    let accessToken = getState().userLogin?.user?.tokens?.access;
+    const config = createConfig(accessToken);
+    const { data } = await backend.get(`/actions/author/${username}`, config);
+    dispatch({ type: AUTHOR_ACTIONS_SUCCESS, payload: data });
+  } catch (error) {
+    dispatch({
+      type: AUTHOR_ACTIONS_FAIL,
       payload: formatError(error),
     });
   }

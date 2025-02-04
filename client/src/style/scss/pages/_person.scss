@@ -3,7 +3,20 @@
 .personPage {
   width: 90%;
   margin: 4em auto;
-  text-align: center;
+
+  .accountInfo {
+    text-align: center;
+  }
+
+  .actionsCreated {
+    margin: 3em auto;
+    h2 {
+      margin: 1.5em auto;
+      text-decoration: underline $violet;
+      text-transform: uppercase;
+      text-align: center;
+    }
+  }
 
   .general {
     display: grid;

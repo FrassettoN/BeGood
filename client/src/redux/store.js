@@ -3,6 +3,7 @@ import { composeWithDevTools } from '@redux-devtools/extension';
 import { thunk } from 'redux-thunk';
 import {
   actionDetailsReducer,
+  authorActionsReducer,
   automatedActionsReducer,
   createActionReducer,
   newActionsReducer,
@@ -44,6 +45,7 @@ const reducer = combineReducers({
   automatedActions: automatedActionsReducer,
   shareAction: shareActionReducer,
   createAction: createActionReducer,
+  authorActions: authorActionsReducer,
 
   // User
   userLogin: userLoginReducer,

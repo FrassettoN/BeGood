@@ -2221,6 +2221,17 @@ form .forgotPassword {
 .personPage {
   width: 90%;
   margin: 4em auto;
+}
+.personPage .accountInfo {
+  text-align: center;
+}
+.personPage .actionsCreated {
+  margin: 3em auto;
+}
+.personPage .actionsCreated h2 {
+  margin: 1.5em auto;
+  text-decoration: underline #a6a8fe;
+  text-transform: uppercase;
   text-align: center;
 }
 .personPage .general {

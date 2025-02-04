@@ -53,6 +53,9 @@ import {
   CREATE_ACTION_REQUEST,
   CREATE_ACTION_SUCCESS,
   CREATE_ACTION_FAIL,
+  AUTHOR_ACTIONS_REQUEST,
+  AUTHOR_ACTIONS_SUCCESS,
+  AUTHOR_ACTIONS_FAIL,
 } from '../../constants/actionsConstants';
 
 export const actionDetailsReducer = (state = { action: {} }, action) => {
@@ -230,6 +233,22 @@ export const createActionReducer = (state = { action: {} }, action) => {
     case CREATE_ACTION_FAIL:
       console.log(action.payload);
       return { loading: false, error: action.payload.details };
+
+    default:
+      return state;
+  }
+};
+
+export const authorActionsReducer = (state = { actions: [] }, action) => {
+  switch (action.type) {
+    case AUTHOR_ACTIONS_REQUEST:
+      return { loading: true, ...state };
+
+    case AUTHOR_ACTIONS_SUCCESS:
+      return { loading: false, actions: action.payload };
+
+    case AUTHOR_ACTIONS_FAIL:
+      return { loading: false, error: action.payload };
 
     default:
       return state;

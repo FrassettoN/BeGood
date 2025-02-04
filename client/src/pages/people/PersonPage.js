@@ -8,12 +8,17 @@ import Chart from '../../components/Chart';
 import { useParams } from 'react-router-dom';
 import FollowButtons from '../../components/people/FollowButtons';
 import Title from '../../components/Title';
+import {
+  getAuthorActions,
+  getSavedActions,
+} from '../../redux/actions/actionActions';
+import Action from '../../components/actions/Action';
 
 const PersonPage = () => {
   const { username } = useParams();
   const dispatch = useDispatch();
   const { person, loading, error } = useSelector((state) => state.person);
-
+  const { actions } = useSelector((state) => state.authorActions);
   const [profileImgPath, setProfileImgPath] = useState();
 
   const getProfileImagePath = async (name) => {
@@ -21,8 +26,12 @@ const PersonPage = () => {
     setProfileImgPath(path);
   };
 
+  const { actions: savedActions } = useSelector((state) => state.savedActions);
+
   useEffect(() => {
     dispatch(getPerson(username));
+    dispatch(getAuthorActions(username));
+    dispatch(getSavedActions());
     getProfileImagePath('profilo');
   }, [dispatch, username]);
 
@@ -75,6 +84,22 @@ const PersonPage = () => {
               </section>
             </div>
           )}
+          <section className='actionsCreated'>
+            <h2>Actions created:</h2>
+            {actions?.map((action) => (
+              <Action
+                key={action.id}
+                action={action}
+                type={
+                  savedActions.some(
+                    (savedAction) => savedAction.id === action.id
+                  )
+                    ? 'none'
+                    : 'new'
+                }
+              />
+            ))}
+          </section>
         </div>
       </main>
     </>

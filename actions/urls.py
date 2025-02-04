@@ -20,6 +20,11 @@ urlpatterns = [
     path("actions/ongoing/", views.get_ongoing_actions, name="ongoing_actions"),
     path("actions/new/", views.get_new_actions, name="new_actions"),
     path("actions/create/", views.create_action, name="create_action"),
+    path(
+        "actions/author/<str:username>",
+        views.get_actions_by_author,
+        name="get_actions_by_author",
+    ),
     path("actions/automated/", views.get_automated_actions, name="automated_actions"),
     path(
         "actions/<int:id>/<str:interaction>/",

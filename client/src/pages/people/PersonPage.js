@@ -86,19 +86,21 @@ const PersonPage = () => {
           )}
           <section className='actionsCreated'>
             <h2>Actions created:</h2>
-            {actions?.map((action) => (
-              <Action
-                key={action.id}
-                action={action}
-                type={
-                  savedActions.some(
-                    (savedAction) => savedAction.id === action.id
-                  )
-                    ? 'none'
-                    : 'new'
-                }
-              />
-            ))}
+            <div className='actions'>
+              {actions?.map((action) => (
+                <Action
+                  key={action.id}
+                  action={action}
+                  type={
+                    savedActions.some(
+                      (savedAction) => savedAction.id === action.id
+                    )
+                      ? 'none'
+                      : 'new'
+                  }
+                />
+              ))}
+            </div>
           </section>
         </div>
       </main>

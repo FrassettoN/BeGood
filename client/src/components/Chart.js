@@ -42,21 +42,6 @@ const Chart = ({ stats }) => {
   let { actions, lessons } = stats;
   const totalActions = actions[0];
 
-  // const importSDGsIcons = async () => {
-  //   let paths = [];
-  //   for (let number = 1; number <= 17; number++) {
-  //     const { default: path } = await import(
-  //       `../images/sdg_goals/goal_${number}/color_icon.png`
-  //     );
-  //     paths.push(path);
-  //   }
-  //   setIconsPaths(paths);
-  // };
-
-  // useEffect(() => {
-  //   importSDGsIcons();
-  // }, []);
-
   const renderStatsCards = () => {
     // I'm using actions as arbitrary array to define sdgs
     return actions.map((action, sdg) => {
@@ -96,7 +81,6 @@ const Chart = ({ stats }) => {
 
   return (
     <>
-      <h3>Progress:</h3>
       <div className='cards'>{renderStatsCards()}</div>
       <div className='bars-chart'>
         <div className='bars'>{renderStatsBars()}</div>

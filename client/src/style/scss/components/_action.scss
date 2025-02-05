@@ -4,8 +4,8 @@
   position: relative;
   border-radius: 10px;
   height: 21em;
-  width: 20em;
-  // width: 100%;
+  width: 100%;
+  max-width: 20em;
   box-shadow: 0 0 20px rgba($color: #000000, $alpha: 0.3);
   transform-style: preserve-3d;
   cursor: pointer;

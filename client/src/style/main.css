@@ -600,7 +600,8 @@ body {
   position: relative;
   border-radius: 10px;
   height: 21em;
-  width: 20em;
+  width: 100%;
+  max-width: 20em;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
   transform-style: preserve-3d;
   cursor: pointer;
@@ -2222,20 +2223,9 @@ form .forgotPassword {
   width: 90%;
   margin: 4em auto;
 }
-.personPage .accountInfo {
-  text-align: center;
-}
-.personPage .actionsCreated {
-  margin: 3em auto;
-}
-.personPage .actionsCreated h2 {
-  margin: 1.5em auto;
-  text-decoration: underline #a6a8fe;
-  text-transform: uppercase;
-  text-align: center;
-}
 .personPage .general {
   display: grid;
+  text-align: center;
 }
 @media only screen and (min-width: 300px) and (max-width: 999px) {
   .personPage .general {
@@ -2267,6 +2257,7 @@ form .forgotPassword {
 }
 @media only screen and (min-width: 1000px) {
   .personPage .general {
+    margin-bottom: 2em;
     grid-template-columns: 1fr 2fr;
     grid-template-rows: auto auto auto;
     gap: 0;
@@ -2346,6 +2337,39 @@ form .forgotPassword {
   .personPage .general .userProgress h4 {
     order: 1;
   }
+}
+.personPage .visualize {
+  display: flex;
+  justify-content: center;
+}
+.personPage .visualize button {
+  width: 50%;
+  max-width: 12em;
+  text-align: center;
+  background: none;
+  border: 2px solid #a6a8fe;
+  padding: 0.5em 0;
+  color: #a6a8fe;
+  font-weight: bold;
+}
+.personPage .visualize button.active {
+  color: white;
+  background: #a6a8fe;
+}
+.personPage .chart {
+  text-align: center;
+}
+.personPage .chart h2 {
+  margin: 1.5em auto;
+  text-decoration: underline #a6a8fe;
+  text-transform: uppercase;
+  text-align: center;
+}
+.personPage .actionsCreated h2 {
+  margin: 1.5em auto;
+  text-decoration: underline #a6a8fe;
+  text-transform: uppercase;
+  text-align: center;
 }
 
 .actionsPage section.createAction {

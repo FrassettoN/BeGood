@@ -4,22 +4,9 @@
   width: 90%;
   margin: 4em auto;
 
-  .accountInfo {
-    text-align: center;
-  }
-
-  .actionsCreated {
-    margin: 3em auto;
-    h2 {
-      margin: 1.5em auto;
-      text-decoration: underline $violet;
-      text-transform: uppercase;
-      text-align: center;
-    }
-  }
-
   .general {
     display: grid;
+    text-align: center;
 
     @include from-to(small, medium) {
       grid-template-columns: 2fr 2fr;
@@ -49,6 +36,7 @@
     }
 
     @include responde-to(medium) {
+      margin-bottom: 2em;
       grid-template-columns: 1fr 2fr;
       grid-template-rows: auto auto auto;
       gap: 0;
@@ -138,6 +126,46 @@
           order: 1;
         }
       }
+    }
+  }
+
+  .visualize {
+    display: flex;
+    justify-content: center;
+
+    button {
+      width: 50%;
+      max-width: 12em;
+      text-align: center;
+      background: none;
+      border: 2px solid $violet;
+      padding: 0.5em 0;
+      color: $violet;
+      font-weight: bold;
+
+      &.active {
+        color: white;
+        background: $violet;
+      }
+    }
+  }
+
+  .chart {
+    text-align: center;
+    h2 {
+      margin: 1.5em auto;
+      text-decoration: underline $violet;
+      text-transform: uppercase;
+      text-align: center;
+    }
+  }
+
+  .actionsCreated {
+    h2 {
+      margin: 1.5em auto;
+      text-decoration: underline $violet;
+      text-transform: uppercase;
+      text-align: center;
     }
   }
 }

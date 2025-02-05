@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-// import Helmet from 'react-helmet';
-import Focus from '../../components/Focus';
 import { getPerson } from '../../redux/actions/peopleActions';
 
 import Chart from '../../components/Chart';
@@ -21,6 +19,12 @@ const PersonPage = () => {
   const { actions } = useSelector((state) => state.authorActions);
   const [profileImgPath, setProfileImgPath] = useState();
 
+  const [visualize, setVisualize] = useState('progress');
+  const buttons = [
+    { label: 'Progress', value: 'progress' },
+    { label: 'Actions', value: 'actions' },
+  ];
+
   const getProfileImagePath = async (name) => {
     const { default: path } = await import(`../../images/vendor/${name}.jpg`);
     setProfileImgPath(path);
@@ -39,7 +43,6 @@ const PersonPage = () => {
     <>
       <Title title={`${person?.info?.username || 'Account'} - BeGood`} />
       <main className='personPage'>
-        <Focus />
         <div className='content'>
           {loading && <div className='spinner'></div>}
           {error && <p className='appError'>{error}</p>}
@@ -77,31 +80,49 @@ const PersonPage = () => {
                 </section>
               </div>
 
-              <section className='chart'>
-                <Chart
-                  stats={{ actions: person.actions, lessons: person.lessons }}
-                />
-              </section>
+              <nav className='visualize'>
+                {buttons.map((button) => (
+                  <button
+                    className={`${visualize === button.value ? 'active' : ''}`}
+                    key={button.value}
+                    onClick={() => setVisualize(button.value)}>
+                    {button.label}
+                  </button>
+                ))}
+              </nav>
+
+              {visualize === 'progress' && (
+                <section className='chart'>
+                  <h2>Progress:</h2>
+
+                  <Chart
+                    stats={{ actions: person.actions, lessons: person.lessons }}
+                  />
+                </section>
+              )}
+
+              {visualize === 'actions' && (
+                <section className='actionsCreated'>
+                  <h2>Actions created:</h2>
+                  <div className='actions'>
+                    {actions?.map((action) => (
+                      <Action
+                        key={action.id}
+                        action={action}
+                        type={
+                          savedActions.some(
+                            (savedAction) => savedAction.id === action.id
+                          )
+                            ? 'none'
+                            : 'new'
+                        }
+                      />
+                    ))}
+                  </div>
+                </section>
+              )}
             </div>
           )}
-          <section className='actionsCreated'>
-            <h2>Actions created:</h2>
-            <div className='actions'>
-              {actions?.map((action) => (
-                <Action
-                  key={action.id}
-                  action={action}
-                  type={
-                    savedActions.some(
-                      (savedAction) => savedAction.id === action.id
-                    )
-                      ? 'none'
-                      : 'new'
-                  }
-                />
-              ))}
-            </div>
-          </section>
         </div>
       </main>
     </>

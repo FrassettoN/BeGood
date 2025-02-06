@@ -262,8 +262,8 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 # Email Settings
 EMAIL_HOST = "smtp.mailpace.com"
 EMAIL_PORT = 587
-EMAIL_USE_TLS = False
-EMAIL_USE_SSL = False
+EMAIL_USE_TLS = not DEBUG
+EMAIL_USE_SSL = not DEBUG
 EMAIL_HOST_USER = os.environ.get("EMAIL_TOKEN") or ""
 EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_TOKEN") or ""
 EMAIL_TOKEN = os.environ.get("EMAIL_TOKEN") or ""

@@ -260,7 +260,7 @@ STATIC_ROOT = BASE_DIR / "frontend"
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 # Email Settings
-EMAIL_HOST = "smtp.ohmysmtp.com"
+EMAIL_HOST = "smtp.mailpace.com"
 EMAIL_PORT = 587
 EMAIL_USE_TLS = False
 EMAIL_USE_SSL = False

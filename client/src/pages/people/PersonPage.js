@@ -92,7 +92,7 @@ const PersonPage = () => {
               </nav>
 
               {visualize === 'progress' && (
-                <section className='chart'>
+                <section className='progress'>
                   <h2>Progress:</h2>
 
                   <Chart

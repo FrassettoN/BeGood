@@ -80,7 +80,7 @@ const Chart = ({ stats }) => {
   };
 
   return (
-    <>
+    <div className='chart'>
       <div className='cards'>{renderStatsCards()}</div>
       <div className='bars-chart'>
         <div className='bars'>{renderStatsBars()}</div>
@@ -90,7 +90,7 @@ const Chart = ({ stats }) => {
           ))}
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

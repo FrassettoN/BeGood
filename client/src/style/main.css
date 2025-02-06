@@ -2356,10 +2356,10 @@ form .forgotPassword {
   color: white;
   background: #a6a8fe;
 }
-.personPage .chart {
+.personPage .progress {
   text-align: center;
 }
-.personPage .chart h2 {
+.personPage .progress h2 {
   margin: 1.5em auto;
   text-decoration: underline #a6a8fe;
   text-transform: uppercase;

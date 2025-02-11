@@ -42,14 +42,22 @@ def get_people(request):
 @permission_classes([IsAuthenticated])
 def visit_person(request, username):
     person = User.objects.filter(username=username).first()
+
     actions = actions_progress(person)
+
+    actions_created = Action.objects.filter(author=person).all()
+    actions_created = ActionSerializer(actions_created, many=True).data
+
     lessons = learn_progress(person)
+
     following_rel = Follower.objects.filter(follower=request.user, followed=person)
     following = True if following_rel else False
     serializer = FollowingUserSerializer(person, many=False)
+
     data = {
         "info": serializer.data,
         "actions": actions,
+        "actionsCreated": actions_created,
         "lessons": lessons,
         "isFollowing": following,
     }

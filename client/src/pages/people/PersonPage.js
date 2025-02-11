@@ -6,18 +6,15 @@ import Chart from '../../components/Chart';
 import { useParams } from 'react-router-dom';
 import FollowButtons from '../../components/people/FollowButtons';
 import Title from '../../components/Title';
-import {
-  getAuthorActions,
-  getSavedActions,
-} from '../../redux/actions/actionActions';
+import { getSavedActions } from '../../redux/actions/actionActions';
 import Action from '../../components/actions/Action';
+import Protected from '../../components/Protected';
 
 const PersonPage = () => {
   const { username } = useParams();
   const dispatch = useDispatch();
   const { person, loading, error } = useSelector((state) => state.person);
-  const { actions } = useSelector((state) => state.authorActions);
-  const [profileImgPath, setProfileImgPath] = useState();
+  const { actions: savedActions } = useSelector((state) => state.savedActions);
 
   const [visualize, setVisualize] = useState('progress');
   const buttons = [
@@ -25,16 +22,14 @@ const PersonPage = () => {
     { label: 'Actions', value: 'actions' },
   ];
 
+  const [profileImgPath, setProfileImgPath] = useState();
   const getProfileImagePath = async (name) => {
     const { default: path } = await import(`../../images/vendor/${name}.jpg`);
     setProfileImgPath(path);
   };
 
-  const { actions: savedActions } = useSelector((state) => state.savedActions);
-
   useEffect(() => {
     dispatch(getPerson(username));
-    dispatch(getAuthorActions(username));
     dispatch(getSavedActions());
     getProfileImagePath('profilo');
   }, [dispatch, username]);
@@ -43,6 +38,7 @@ const PersonPage = () => {
     <>
       <Title title={`${person?.info?.username || 'Account'} - BeGood`} />
       <main className='personPage'>
+        <Protected />
         <div className='content'>
           {loading && <div className='spinner'></div>}
           {error && <p className='appError'>{error}</p>}
@@ -105,7 +101,7 @@ const PersonPage = () => {
                 <section className='actionsCreated'>
                   <h2>Actions created:</h2>
                   <div className='actions'>
-                    {actions?.map((action) => (
+                    {person?.actionsCreated?.map((action) => (
                       <Action
                         key={action.id}
                         action={action}

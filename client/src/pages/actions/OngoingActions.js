@@ -6,12 +6,16 @@ import { getOngoingActions } from '../../redux/actions/actionActions';
 import NavActions from '../../components/actions/NavActions';
 import Protected from '../../components/Protected';
 import Title from '../../components/Title';
+import NavDurations from '../../components/actions/NavDurations';
+import { NavLink } from 'react-router-dom';
+import { MdAutoMode } from 'react-icons/md';
 
 const OngoingActions = () => {
   const dispatch = useDispatch();
   const { actions, loading, error, message } = useSelector(
     (state) => state.ongoingActions
   );
+  const [visible, setVisible] = React.useState('day');
 
   useEffect(() => {
     dispatch(getOngoingActions());
@@ -43,26 +47,35 @@ const OngoingActions = () => {
 
         <NavActions />
 
-        <div className='actions'>
-          <h2>
-            To do <span>today</span>:
-          </h2>
-          {actions && renderActions(actions, 'day')}
-        </div>
+        <NavDurations
+          visible={visible}
+          setVisible={setVisible}
+          type='ongoing'
+        />
 
-        <div className='actions'>
-          <h2>
-            To do <span>this week</span>:
-          </h2>
-          {actions && renderActions(actions, 'week')}
-        </div>
+        <nav className='navActions large_screen'>
+          <NavLink to='/actions/automated'>
+            <MdAutoMode className='icon' />
+          </NavLink>
+        </nav>
 
-        <div className='actions'>
-          <h2>
-            To do <span>this month</span>:
-          </h2>
-          {actions && renderActions(actions, 'month')}
-        </div>
+        {visible === 'day' && (
+          <div className='actions'>
+            {actions && renderActions(actions, 'day')}
+          </div>
+        )}
+
+        {visible === 'week' && (
+          <div className='actions'>
+            {actions && renderActions(actions, 'week')}
+          </div>
+        )}
+
+        {visible === 'month' && (
+          <div className='actions'>
+            {actions && renderActions(actions, 'month')}
+          </div>
+        )}
       </main>
     </>
   );

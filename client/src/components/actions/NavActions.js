@@ -20,13 +20,6 @@ const NavActions = () => {
           <MdAutoMode className='icon' />
         </NavLink>
       </nav>
-      {location.pathname !== '/actions/new' && (
-        <nav className='navActions large_screen'>
-          <NavLink to='/actions/automated'>
-            <MdAutoMode className='icon' />
-          </NavLink>
-        </nav>
-      )}
     </>
   );
 };

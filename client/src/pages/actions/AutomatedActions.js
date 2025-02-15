@@ -6,12 +6,16 @@ import FindNewActions from '../../components/actions/FindNewActions';
 import NavActions from '../../components/actions/NavActions';
 import Protected from '../../components/Protected';
 import Title from '../../components/Title';
+import NavDurations from '../../components/actions/NavDurations';
+import { NavLink } from 'react-router-dom';
+import { MdAutoMode } from 'react-icons/md';
 
 const AutomatedActions = () => {
   const dispatch = useDispatch();
   const { actions, loading, error, message } = useSelector(
     (state) => state.automatedActions
   );
+  const [visible, setVisible] = React.useState('day');
 
   useEffect(() => {
     dispatch(getAutomatedActions());
@@ -44,24 +48,35 @@ const AutomatedActions = () => {
 
         <NavActions />
 
-        <div className='actions'>
-          <h2>
-            Done <span>today</span>:
-          </h2>
-          {actions && renderActions(actions, 'day')}
-        </div>
-        <div className='actions'>
-          <h2>
-            Done <span>this week</span>:
-          </h2>
-          {actions && renderActions(actions, 'week')}
-        </div>
-        <div className='actions'>
-          <h2>
-            Done <span>this month</span>:
-          </h2>
-          {actions && renderActions(actions, 'month')}
-        </div>
+        <NavDurations
+          visible={visible}
+          setVisible={setVisible}
+          type='automated'
+        />
+
+        <nav className='navActions large_screen'>
+          <NavLink to='/actions/automated'>
+            <MdAutoMode className='icon' />
+          </NavLink>
+        </nav>
+
+        {visible === 'day' && (
+          <div className='actions'>
+            {actions && renderActions(actions, 'day')}
+          </div>
+        )}
+
+        {visible === 'week' && (
+          <div className='actions'>
+            {actions && renderActions(actions, 'week')}
+          </div>
+        )}
+
+        {visible === 'month' && (
+          <div className='actions'>
+            {actions && renderActions(actions, 'month')}
+          </div>
+        )}
       </main>
     </>
   );

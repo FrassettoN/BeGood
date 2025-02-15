@@ -769,6 +769,22 @@ body {
   }
 }
 
+.navDurations {
+  text-align: center;
+  margin-bottom: 1.3em;
+}
+.navDurations button {
+  border: none;
+  background: none;
+}
+.navDurations h2 {
+  width: 10em;
+  text-decoration: underline #085944;
+  display: inline-block;
+  text-transform: capitalize;
+  font-weight: bold;
+}
+
 .spinner {
   width: 40px;
   height: 40px;

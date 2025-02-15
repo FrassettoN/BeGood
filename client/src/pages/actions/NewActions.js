@@ -6,10 +6,12 @@ import NavActions from '../../components/actions/NavActions';
 import Protected from '../../components/Protected';
 import Title from '../../components/Title';
 import { Link } from 'react-router-dom';
+import NavDurations from '../../components/actions/NavDurations';
 
 const NewActions = () => {
   const dispatch = useDispatch();
   const { actions, loading, error } = useSelector((state) => state.newActions);
+  const [visible, setVisible] = React.useState('day');
 
   useEffect(() => {
     dispatch(getNewActions());
@@ -18,9 +20,6 @@ const NewActions = () => {
   const renderActions = (actions, duration) => {
     return (
       <>
-        <h2>
-          To do in a <span>{duration}</span>:
-        </h2>
         {actions
           ?.filter((action) => action.duration === duration)
           ?.map((action) => {
@@ -42,23 +41,30 @@ const NewActions = () => {
 
         <NavActions />
 
+        <NavDurations visible={visible} setVisible={setVisible} type='new' />
         <section className='createAction'>
           <Link to='/actions/create' className='btn violet'>
             Create
           </Link>
         </section>
 
-        <div className='actions'>
-          {actions && renderActions(actions, 'day')}
-        </div>
+        {visible === 'day' && (
+          <div className='actions'>
+            {actions && renderActions(actions, 'day')}
+          </div>
+        )}
 
-        <div className='actions'>
-          {actions && renderActions(actions, 'week')}
-        </div>
+        {visible === 'week' && (
+          <div className='actions'>
+            {actions && renderActions(actions, 'week')}
+          </div>
+        )}
 
-        <div className='actions'>
-          {actions && renderActions(actions, 'month')}
-        </div>
+        {visible === 'month' && (
+          <div className='actions'>
+            {actions && renderActions(actions, 'month')}
+          </div>
+        )}
       </main>
     </>
   );

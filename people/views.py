@@ -41,9 +41,10 @@ def get_people(request):
 @api_view(["GET"])
 @permission_classes([IsAuthenticated])
 def visit_person(request, username):
+
     person = User.objects.filter(username=username).first()
 
-    actions_progress = actions_progress(person)
+    actions_progress_data = actions_progress(person)
 
     actions_created = Action.objects.filter(author=person).all()
     actions_created = ActionSerializer(actions_created, many=True).data
@@ -56,7 +57,7 @@ def visit_person(request, username):
 
     data = {
         "info": serializer.data,
-        "actions": actions_progress,
+        "actions": actions_progress_data,
         "actionsCreated": actions_created,
         "lessons": lessons,
         "isFollowing": following,

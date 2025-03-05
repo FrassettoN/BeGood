@@ -55,10 +55,19 @@ def get_users(request):
 @api_view(["GET"])
 @permission_classes([IsAuthenticated])
 def get_user_profile(request):
-    actions = actions_progress(request.user)
+    user_info = UserSerializer(request.user, many=False).data
+    actions_progress = actions_progress(request.user)
     lessons = learn_progress(request.user)
-    serialized = UserSerializer(request.user, many=False)
-    data = {"info": serialized.data, "actions": actions, "lessons": lessons}
+
+    actions_created = Action.objects.filter(author=person).all()
+    actions_created = ActionSerializer(actions_created, many=True).data
+
+    data = {
+        "info": user_info,
+        "actions": actions_progress,
+        "lessons": lessons,
+        "actionsCreated": actions_created,
+    }
     return Response(data)
 
 

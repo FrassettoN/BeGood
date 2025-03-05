@@ -8,8 +8,9 @@ from myaccount.models import User
 from learn.models import Course, Topic, Lesson
 from .utils import give_user_exp, validate_action
 from datetime import date, timedelta, datetime
-from django.db import IntegrityError
+from django.db import IntegrityError, transaction
 from django.db.models import Q
+from django.http import Http404
 from django.core.exceptions import ValidationError
 from django.shortcuts import get_object_or_404
 
@@ -100,9 +101,15 @@ def fill_database(request):
 # Create your views here.
 @api_view(["GET"])
 def get_action(request, id):
-    action = Action.objects.get(id=id)
-    serialized = ActionSerializer(action, many=False)
-    return Response(serialized.data)
+    try:
+        action = get_object_or_404(Action, id=id)
+        serialized = ActionSerializer(action, many=False)
+        return Response(serialized.data)
+    except Http404:
+        return Response(
+            {"detail": "Action not found!"},
+            status=status.HTTP_404_NOT_FOUND,
+        )
 
 
 @api_view(["GET"])
@@ -197,7 +204,7 @@ def interact_with_action(request, id, interaction):
                     user=request.user, action=action, is_saved=True
                 )
 
-        elif interaction == "delete":
+        elif interaction == "remove":
             user_action.is_saved = False
             user_action.is_active = False
             user_action.is_automated = False
@@ -259,6 +266,86 @@ def create_action(request):
         return Response(serialized.data)
     except ValidationError as e:
         return Response({"details": e}, status=status.HTTP_400_BAD_REQUEST)
+
+
+@api_view(["POST"])
+@permission_classes([IsAuthenticated])
+def modify_action(request, id):
+    data = request.data["details"]
+    user = request.user
+    action = get_object_or_404(Action, id=id)
+
+    if action.author != user:
+        return Response(
+            {"details": "You are not the author of this action!"},
+            status=status.HTTP_401_UNAUTHORIZED,
+        )
+
+    try:
+        modified_action = validate_action(data, exclude_id=id)
+
+        with transaction.atomic():
+            # Update action fields
+            action.title = modified_action["title"]
+            action.caption = modified_action["caption"]
+            action.description = modified_action["description"]
+            action.level = modified_action["level"]
+            action.duration = modified_action["duration"]
+
+            # Update SDGs only if they've changed
+            # Use number field instead of id for SDGs
+            current_sdgs = set(action.SDGs.values_list("number", flat=True))
+            new_sdgs = set(modified_action["SDGs"])
+
+            if current_sdgs != new_sdgs:
+                action.SDGs.set(modified_action["SDGs"])
+
+            action.save()
+
+        serialized = ActionSerializer(action, many=False)
+        return Response(serialized.data)
+    except ValidationError as e:
+        print(e)
+        return Response({"details": str(e)}, status=status.HTTP_400_BAD_REQUEST)
+    except Exception as e:
+        print(e)
+        return Response(
+            {"details": f"An error occurred: {str(e)}"},
+            status=status.HTTP_500_INTERNAL_SERVER_ERROR,
+        )
+
+
+@api_view(["POST"])  # Changed from GET to DELETE for proper RESTful design
+@permission_classes([IsAuthenticated])
+def delete_action(request, id):
+    """
+    Delete an action. Only the author of the action can delete it.
+    """
+    action = get_object_or_404(Action, id=id)
+    user = request.user
+
+    # Check if the user is the author of the action
+    if action.author != user:
+        return Response(
+            {"details": "You are not the author of this action!"},
+            status=status.HTTP_401_UNAUTHORIZED,
+        )
+
+    try:
+        # Delete related UserAction records first to maintain referential integrity
+        UserAction.objects.filter(action=action).delete()
+
+        # Now delete the action
+        action.delete()
+
+        return Response(
+            {"details": "Action deleted successfully"}, status=status.HTTP_200_OK
+        )
+    except Exception as e:
+        return Response(
+            {"details": f"An error occurred while deleting the action: {str(e)}"},
+            status=status.HTTP_500_INTERNAL_SERVER_ERROR,
+        )
 
 
 @api_view(["GET"])

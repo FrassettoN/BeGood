@@ -4,11 +4,13 @@ import UserActionButtons from './UserActionBtns';
 import AutomatedActionButtons from './AutoActionBtns';
 import { Link } from 'react-router-dom';
 import { TbInfoOctagon } from 'react-icons/tb';
+import { GoPencil } from 'react-icons/go';
 
 const Action = ({ action, className, type }) => {
   const [flip, setFlip] = useState(false);
   const front = useRef();
   const back = useRef();
+  const types = type?.split(' ') || [];
 
   const [iconsPaths, setIconsPaths] = useState({});
 
@@ -57,7 +59,7 @@ const Action = ({ action, className, type }) => {
           <div className='action__sdgs'>
             {action.SDGs && renderSDGsIcons(action.SDGs)}
           </div>
-          {action.description && (
+          {!types.includes('author') && action.description && (
             <Link
               className='action__info'
               onClick={(e) => e.stopPropagation()}
@@ -65,17 +67,27 @@ const Action = ({ action, className, type }) => {
               <TbInfoOctagon />
             </Link>
           )}
+          {types.includes('author') && (
+            <>
+              <Link
+                className='action__info'
+                onClick={(e) => e.stopPropagation()}
+                to={`/actions/modify/${action.id}`}>
+                <GoPencil />
+              </Link>
+            </>
+          )}
         </section>
       </div>
       <div className='action__back' ref={back}>
         <h3 className='action__back__title'>{action.title}</h3>
-        {type === 'user' && (
+        {types.includes('user') && (
           <UserActionButtons id={action.id} setFlip={setFlip} />
         )}
-        {type === 'new' && (
+        {types.includes('new') && (
           <NewActionButtons id={action.id} setFlip={setFlip} />
         )}
-        {type === 'automated' && (
+        {types.includes('automated') && (
           <AutomatedActionButtons id={action.id} setFlip={setFlip} />
         )}
       </div>

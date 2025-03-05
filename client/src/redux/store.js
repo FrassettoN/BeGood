@@ -5,7 +5,7 @@ import {
   actionDetailsReducer,
   authorActionsReducer,
   automatedActionsReducer,
-  createActionReducer,
+  formActionReducer,
   newActionsReducer,
   ongoingActionsReducer,
   savedActionsReducer,
@@ -44,7 +44,7 @@ const reducer = combineReducers({
   ongoingActions: ongoingActionsReducer,
   automatedActions: automatedActionsReducer,
   shareAction: shareActionReducer,
-  createAction: createActionReducer,
+  formAction: formActionReducer,
   authorActions: authorActionsReducer,
 
   // User

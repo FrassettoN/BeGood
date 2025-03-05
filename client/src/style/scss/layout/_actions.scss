@@ -1,18 +1,20 @@
 @use '../abstracts' as *;
 
 .actions {
-
   display: grid;
   grid-template-columns: repeat(auto-fill, 20em);
 
   transition: height 1s;
-  gap: 2em;
+  gap: 3em 1em;
   width: 90%;
   margin: 0 auto 4em auto;
   font-size: clamp(0.9rem, 1vw, 1.5rem);
 
   @include from-to(small, medium) {
     justify-content: center;
+  }
+  @include responde-to(medium) {
+    justify-content: space-around;
   }
 
   h2 {

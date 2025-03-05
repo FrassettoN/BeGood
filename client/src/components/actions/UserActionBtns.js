@@ -2,10 +2,10 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import {
   completeAction,
-  deleteAction,
   failedAction,
   automateAction,
   shareAction,
+  removeAction,
 } from '../../redux/actions/actionActions';
 import { HiXCircle, HiCheckCircle } from 'react-icons/hi';
 import { IoIosShareAlt } from 'react-icons/io';
@@ -17,8 +17,8 @@ const UserActionButtons = ({ setFlip, id }) => {
   const onClick = (e, type) => {
     e.stopPropagation();
     switch (type) {
-      case 'delete':
-        dispatch(deleteAction(id));
+      case 'remove':
+        dispatch(removeAction(id));
         break;
       case 'complete':
         dispatch(completeAction(id));
@@ -65,11 +65,11 @@ const UserActionButtons = ({ setFlip, id }) => {
         </button>
       </div>
       <button
-        className='action__button action__delete'
-        onClick={(e) => onClick(e, 'delete')}
+        className='action__button action__remove'
+        onClick={(e) => onClick(e, 'remove')}
         onFocus={() => setFlip(true)}
         onBlur={() => setFlip(false)}>
-        Delete Task
+        Remove
       </button>
     </>
   );

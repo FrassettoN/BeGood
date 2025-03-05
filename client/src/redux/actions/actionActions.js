@@ -41,6 +41,14 @@ import {
   AUTHOR_ACTIONS_REQUEST,
   AUTHOR_ACTIONS_SUCCESS,
   AUTHOR_ACTIONS_FAIL,
+  MODIFY_ACTION_REQUEST,
+  MODIFY_ACTION_SUCCESS,
+  MODIFY_ACTION_FAIL,
+  ACTION_DETAILS_RESET,
+  FORM_ACTION_RESET,
+  REMOVE_ACTION_REQUEST,
+  REMOVE_ACTION_SUCCESS,
+  REMOVE_ACTION_FAIL,
 } from '../../constants/actionsConstants';
 import backend from '../../api/backend';
 import { createConfig, formatError } from './utils';
@@ -56,6 +64,10 @@ export const getActionDetails = (id) => async (dispatch) => {
       payload: formatError(error),
     });
   }
+};
+
+export const resetActionDetails = () => (dispatch) => {
+  dispatch({ type: ACTION_DETAILS_RESET });
 };
 
 export const getSavedActions = () => async (dispatch, getState) => {
@@ -134,17 +146,17 @@ export const saveAction = (id) => async (dispatch, getState) => {
   }
 };
 
-export const deleteAction = (id) => async (dispatch, getState) => {
+export const removeAction = (id) => async (dispatch, getState) => {
   try {
-    dispatch({ type: DELETE_ACTION_REQUEST });
+    dispatch({ type: REMOVE_ACTION_REQUEST });
 
     let accessToken = getState().userLogin?.user?.tokens?.access;
     const config = createConfig(accessToken);
-    const { data } = await backend.put(`/actions/${id}/delete/`, {}, config);
-    dispatch({ type: DELETE_ACTION_SUCCESS, payload: data });
+    const { data } = await backend.put(`/actions/${id}/remove/`, {}, config);
+    dispatch({ type: REMOVE_ACTION_SUCCESS, payload: data });
   } catch (error) {
     dispatch({
-      type: DELETE_ACTION_FAIL,
+      type: REMOVE_ACTION_FAIL,
       payload: formatError(error),
     });
   }
@@ -232,6 +244,45 @@ export const createAction = (details) => async (dispatch, getState) => {
       payload: formatError(error),
     });
   }
+};
+export const modifyAction = (id, details) => async (dispatch, getState) => {
+  try {
+    dispatch({ type: MODIFY_ACTION_REQUEST });
+
+    let accessToken = getState().userLogin?.user?.tokens?.access;
+    const config = createConfig(accessToken);
+    const { data } = await backend.post(
+      `/actions/modify/${id}/`,
+      { details },
+      config
+    );
+    dispatch({ type: MODIFY_ACTION_SUCCESS, payload: data });
+  } catch (error) {
+    dispatch({
+      type: MODIFY_ACTION_FAIL,
+      payload: formatError(error),
+    });
+  }
+};
+
+export const deleteAction = (id) => async (dispatch, getState) => {
+  try {
+    dispatch({ type: DELETE_ACTION_REQUEST });
+
+    let accessToken = getState().userLogin?.user?.tokens?.access;
+    const config = createConfig(accessToken);
+    const { data } = await backend.post(`/actions/delete/${id}/`, {}, config);
+    dispatch({ type: DELETE_ACTION_SUCCESS, payload: data });
+  } catch (error) {
+    dispatch({
+      type: DELETE_ACTION_FAIL,
+      payload: formatError(error),
+    });
+  }
+};
+
+export const resetFormAction = () => (dispatch) => {
+  dispatch({ type: FORM_ACTION_RESET });
 };
 
 export const getAuthorActions = (username) => async (dispatch, getState) => {

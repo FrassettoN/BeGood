@@ -40,6 +40,8 @@ from .utils import (
 
 from actions.utils import refresh_actions, actions_progress
 from learn.utils import learn_progress
+from actions.models import Action
+from actions.serializers import ActionSerializer
 
 
 @api_view(["GET"])
@@ -50,13 +52,32 @@ def get_users(request):
     return Response(serializer.data)
 
 
+# @api_view(["GET"])
+# @permission_classes([IsAuthenticated])
+# def get_user_profile(request):
+#     actions = actions_progress(request.user)
+#     lessons = learn_progress(request.user)
+#     serialized = UserSerializer(request.user, many=False)
+#     data = {"info": serialized.data, "actions": actions, "lessons": lessons}
+#     return Response(data)
+
+
 @api_view(["GET"])
 @permission_classes([IsAuthenticated])
 def get_user_profile(request):
+    user_info = UserSerializer(request.user, many=False).data
     actions = actions_progress(request.user)
     lessons = learn_progress(request.user)
-    serialized = UserSerializer(request.user, many=False)
-    data = {"info": serialized.data, "actions": actions, "lessons": lessons}
+
+    actions_created = Action.objects.filter(author=request.user).all()
+    actions_created = ActionSerializer(actions_created, many=True).data
+
+    data = {
+        "info": user_info,
+        "actions": actions,
+        "lessons": lessons,
+        "actionsCreated": actions_created,
+    }
     return Response(data)
 
 

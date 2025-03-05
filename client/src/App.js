@@ -23,6 +23,7 @@ import AutomatedActions from './pages/actions/AutomatedActions.js';
 import PersonPage from './pages/people/PersonPage.js';
 import CreateAction from './pages/actions/CreateAction.js';
 import ActionPage from './pages/actions/ActionPage.js';
+import ModifyAction from './pages/actions/ModifyAction.js';
 
 const App = () => {
   const dispatch = useDispatch();
@@ -60,6 +61,7 @@ const App = () => {
           <Route path='/actions/new' element={<NewActions />} />
           <Route path='/actions/automated' element={<AutomatedActions />} />
           <Route path='/actions/create' element={<CreateAction />} />
+          <Route path='/actions/modify/:id' element={<ModifyAction />} />
 
           {/* Learn Pages */}
           <Route element={<Learn />} path='/learn' exact />

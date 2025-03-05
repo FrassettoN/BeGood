@@ -2,11 +2,8 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { MdLibraryAdd, MdAutoMode } from 'react-icons/md';
 import { BsCheckCircle } from 'react-icons/bs';
-import { useLocation } from 'react-router-dom';
 
 const NavActions = () => {
-  const location = useLocation();
-
   return (
     <>
       <nav className='navActions'>

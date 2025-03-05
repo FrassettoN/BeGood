@@ -1,0 +1,15 @@
+@use '../../abstracts/' as *;
+
+.modifyAction {
+  h1 {
+    span {
+      color: $black;
+      display: block;
+      font-size: medium;
+    }
+  }
+
+  .action {
+    width: 20em;
+  }
+}

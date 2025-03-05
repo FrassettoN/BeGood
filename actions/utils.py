@@ -97,7 +97,7 @@ def actions_progress(user):
     return sdgs_progress
 
 
-def validate_action(data):
+def validate_action(data, exclude_id=None):
     errors = []
 
     title = data.get("title")
@@ -105,8 +105,14 @@ def validate_action(data):
         errors.append("Title is required")
     elif len(title) > 25:
         errors.append("Max length for title is 25 characters")
-    elif Action.objects.filter(title=title).exists():
-        errors.append("An Action with this title already exists!")
+    else:
+        # Check for duplicate title, excluding the current action if updating
+        title_query = Action.objects.filter(title=title)
+        if exclude_id is not None:
+            title_query = title_query.exclude(id=exclude_id)
+
+        if title_query.exists():
+            errors.append("An Action with this title already exists!")
 
     caption = data.get("caption")
     if not caption:

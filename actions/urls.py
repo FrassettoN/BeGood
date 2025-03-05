@@ -20,6 +20,8 @@ urlpatterns = [
     path("actions/ongoing/", views.get_ongoing_actions, name="ongoing_actions"),
     path("actions/new/", views.get_new_actions, name="new_actions"),
     path("actions/create/", views.create_action, name="create_action"),
+    path("actions/modify/<int:id>/", views.modify_action, name="modify_action"),
+    path("actions/delete/<int:id>/", views.delete_action, name="delete_action"),
     path(
         "actions/author/<str:username>",
         views.get_actions_by_author,

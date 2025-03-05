@@ -16,7 +16,7 @@ const PersonPage = () => {
   const { person, loading, error } = useSelector((state) => state.person);
   const { actions: savedActions } = useSelector((state) => state.savedActions);
 
-  const [visualize, setVisualize] = useState('progress');
+  const [visible, setVisible] = useState('progress');
   const buttons = [
     { label: 'Progress', value: 'progress' },
     { label: 'Actions', value: 'actions' },
@@ -79,15 +79,15 @@ const PersonPage = () => {
               <nav className='visualize'>
                 {buttons.map((button) => (
                   <button
-                    className={`${visualize === button.value ? 'active' : ''}`}
+                    className={`${visible === button.value ? 'active' : ''}`}
                     key={button.value}
-                    onClick={() => setVisualize(button.value)}>
+                    onClick={() => setVisible(button.value)}>
                     {button.label}
                   </button>
                 ))}
               </nav>
 
-              {visualize === 'progress' && (
+              {visible === 'progress' && (
                 <section className='progress'>
                   <h2>Progress:</h2>
 
@@ -97,7 +97,7 @@ const PersonPage = () => {
                 </section>
               )}
 
-              {visualize === 'actions' && (
+              {visible === 'actions' && (
                 <section className='actionsCreated'>
                   <h2>Actions created:</h2>
                   <div className='actions'>

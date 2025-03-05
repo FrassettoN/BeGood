@@ -43,7 +43,7 @@ def get_people(request):
 def visit_person(request, username):
     person = User.objects.filter(username=username).first()
 
-    actions = actions_progress(person)
+    actions_progress = actions_progress(person)
 
     actions_created = Action.objects.filter(author=person).all()
     actions_created = ActionSerializer(actions_created, many=True).data
@@ -56,7 +56,7 @@ def visit_person(request, username):
 
     data = {
         "info": serializer.data,
-        "actions": actions,
+        "actions": actions_progress,
         "actionsCreated": actions_created,
         "lessons": lessons,
         "isFollowing": following,

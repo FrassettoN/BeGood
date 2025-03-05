@@ -19,10 +19,10 @@ import {
   NEW_ACTIONS_SUCCESS,
   NEW_ACTIONS_FAIL,
 
-  // Delete Action
-  DELETE_ACTION_SUCCESS,
-  DELETE_ACTION_FAIL,
-  DELETE_ACTION_REQUEST,
+  // Remove Action
+  REMOVE_ACTION_SUCCESS,
+  REMOVE_ACTION_FAIL,
+  REMOVE_ACTION_REQUEST,
 
   // Complete Action
   COMPLETE_ACTION_REQUEST,
@@ -38,24 +38,50 @@ import {
   AUTOMATE_ACTION_REQUEST,
   AUTOMATE_ACTION_SUCCESS,
   AUTOMATE_ACTION_FAIL,
+
+  // Automated Actions
   AUTOMATED_ACTIONS_REQUEST,
   AUTOMATED_ACTIONS_SUCCESS,
   AUTOMATED_ACTIONS_FAIL,
+
+  // Not Automate Action
   NOT_AUTOMATE_ACTION_REQUEST,
   NOT_AUTOMATE_ACTION_SUCCESS,
   NOT_AUTOMATE_ACTION_FAIL,
+
+  // Share Action
   SHARE_ACTION_REQUEST,
   SHARE_ACTION_FAIL,
   SHARE_ACTION_SUCCESS,
+
+  // Saved Actions
   SAVED_ACTIONS_REQUEST,
   SAVED_ACTIONS_SUCCESS,
   SAVED_ACTIONS_FAIL,
+
+  // Create Action
   CREATE_ACTION_REQUEST,
   CREATE_ACTION_SUCCESS,
   CREATE_ACTION_FAIL,
+
+  // Author Actions
   AUTHOR_ACTIONS_REQUEST,
   AUTHOR_ACTIONS_SUCCESS,
   AUTHOR_ACTIONS_FAIL,
+
+  // Modify Action
+  MODIFY_ACTION_REQUEST,
+  MODIFY_ACTION_SUCCESS,
+  MODIFY_ACTION_FAIL,
+
+  // Delete Action
+  DELETE_ACTION_REQUEST,
+  DELETE_ACTION_SUCCESS,
+  DELETE_ACTION_FAIL,
+
+  // Reset
+  FORM_ACTION_RESET,
+  ACTION_DETAILS_RESET,
 } from '../../constants/actionsConstants';
 
 export const actionDetailsReducer = (state = { action: {} }, action) => {
@@ -69,6 +95,9 @@ export const actionDetailsReducer = (state = { action: {} }, action) => {
     case ACTION_DETAILS_FAIL:
       return { loading: false, error: action.payload };
 
+    case ACTION_DETAILS_RESET:
+      return { action: {}, loading: false, error: null };
+
     default:
       return state;
   }
@@ -77,13 +106,13 @@ export const actionDetailsReducer = (state = { action: {} }, action) => {
 export const savedActionsReducer = (state = { actions: [] }, action) => {
   switch (action.type) {
     case SAVED_ACTIONS_REQUEST:
-    case DELETE_ACTION_REQUEST:
+    case REMOVE_ACTION_REQUEST:
       return { loading: true, ...state };
 
     case SAVED_ACTIONS_SUCCESS:
       return { loading: false, actions: action.payload };
 
-    case DELETE_ACTION_SUCCESS:
+    case REMOVE_ACTION_SUCCESS:
       return {
         loading: false,
         actions: [
@@ -95,7 +124,7 @@ export const savedActionsReducer = (state = { actions: [] }, action) => {
       };
 
     case SAVED_ACTIONS_FAIL:
-    case DELETE_ACTION_FAIL:
+    case REMOVE_ACTION_FAIL:
       return { loading: false, error: action.payload };
 
     default:
@@ -106,7 +135,7 @@ export const savedActionsReducer = (state = { actions: [] }, action) => {
 export const ongoingActionsReducer = (state = { actions: [] }, action) => {
   switch (action.type) {
     case ONGOING_ACTIONS_REQUEST:
-    case DELETE_ACTION_REQUEST:
+    case REMOVE_ACTION_REQUEST:
     case COMPLETE_ACTION_REQUEST:
     case FAILED_ACTION_REQUEST:
     case AUTOMATE_ACTION_REQUEST:
@@ -115,7 +144,7 @@ export const ongoingActionsReducer = (state = { actions: [] }, action) => {
     case ONGOING_ACTIONS_SUCCESS:
       return { loading: false, actions: action.payload };
 
-    case DELETE_ACTION_SUCCESS:
+    case REMOVE_ACTION_SUCCESS:
     case COMPLETE_ACTION_SUCCESS:
     case FAILED_ACTION_SUCCESS:
     case AUTOMATE_ACTION_SUCCESS:
@@ -130,7 +159,7 @@ export const ongoingActionsReducer = (state = { actions: [] }, action) => {
       };
 
     case ONGOING_ACTIONS_FAIL:
-    case DELETE_ACTION_FAIL:
+    case REMOVE_ACTION_FAIL:
     case COMPLETE_ACTION_FAIL:
     case FAILED_ACTION_FAIL:
     case AUTOMATE_ACTION_FAIL:
@@ -183,7 +212,7 @@ export const newActionsReducer = (state = { actions: [] }, action) => {
       return { loading: false, error: action.payload };
 
     case SAVE_ACTION_SUCCESS:
-      // delete the Action from the new actions list
+      // REMOVE the Action from the new actions list
       return {
         loading: false,
         actions: [
@@ -222,17 +251,27 @@ export const shareActionReducer = (state = {}, action) => {
   }
 };
 
-export const createActionReducer = (state = { action: {} }, action) => {
+export const formActionReducer = (state = { action: {} }, action) => {
   switch (action.type) {
     case CREATE_ACTION_REQUEST:
+    case MODIFY_ACTION_REQUEST:
+    case DELETE_ACTION_REQUEST:
       return { loading: true };
 
     case CREATE_ACTION_SUCCESS:
+    case MODIFY_ACTION_SUCCESS:
       return { loading: false, action: action.payload };
 
+    case DELETE_ACTION_SUCCESS:
+      return { loading: false, message: 'Action deleted!', action: {} };
+
     case CREATE_ACTION_FAIL:
-      console.log(action.payload);
+    case MODIFY_ACTION_FAIL:
+    case DELETE_ACTION_FAIL:
       return { loading: false, error: action.payload.details };
+
+    case FORM_ACTION_RESET:
+      return { action: {}, loading: false, error: null };
 
     default:
       return state;
